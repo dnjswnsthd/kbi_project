@@ -1,10 +1,10 @@
-package com.wonjun.project;
+package com.wonjun.project_backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProjectApplicationTests {
+class ProjectBackendApplicationTests {
 
 	@Test
 	void contextLoads() {
