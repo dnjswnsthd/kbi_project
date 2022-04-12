@@ -2,16 +2,16 @@
   <v-container>
     <v-row>
       <div class="myPageImg">
-        <img :src="myPage" alt="¸¶ÀÌÆäÀÌÁö" />
+        <img :src="myPage" alt="ë§ˆì´í˜ì´ì§€" />
       </div>
-      <p class="titleText myPageTitle">{{ user.nick }}´ÔÀÇ Á¤º¸</p>
+      <p class="titleText myPageTitle">{{ user.nick }}ë‹˜ì˜ ì •ë³´</p>
       <v-spacer></v-spacer>
     </v-row>
     <div class="mt-5">
       <v-row>
         <v-spacer></v-spacer>
-        <button class="modifyBtn" @click="ModifyUser">È¸¿øÁ¤º¸ ¼öÁ¤</button>
-        <button class="deleteUserBtn" @click="deleteUser">Å»ÅğÇÏ±â</button>
+        <button class="modifyBtn" @click="ModifyUser">íšŒì›ì •ë³´ ìˆ˜ì •</button>
+        <button class="deleteUserBtn" @click="deleteUser">íƒˆí‡´í•˜ê¸°</button>
         <v-spacer></v-spacer>
       </v-row>
     </div>
@@ -28,7 +28,7 @@
 
     <div class="mt-5 pt-1">
       <p class="font-20">
-        ¤·<span class="titleText myRecipeTitle"> ³»°¡ ¿Ã¸° ·¹½ÃÇÇ</span>
+        ã…‡<span class="titleText myRecipeTitle"> ë‚´ê°€ ì˜¬ë¦° ë ˆì‹œí”¼</span>
       </p>
     </div>
     <v-row>
@@ -90,7 +90,7 @@ export default {
       let scrolledToBottom =
         document.documentElement.scrollTop + window.innerHeight ===
         document.documentElement.offsetHeight;
-      // ½ºÅ©·ÑÀÌ °¡Àå¾Æ·¡¸é ´ÙÀ½ Á¤º¸¸¦ °¡Á®¿È.
+      // ìŠ¤í¬ë¡¤ì´ ê°€ì¥ì•„ë˜ë©´ ë‹¤ìŒ ì •ë³´ë¥¼ ê°€ì ¸ì˜´.
       if (scrolledToBottom && this.isLoading) {
         setTimeout(this.getMyList, 500);
       }
@@ -117,7 +117,7 @@ export default {
             this.user = response.data.user;
             this.id = this.user.id;
           } else {
-            swal("Á¶È¸ ½ÇÆĞ!", {
+            swal("ì¡°íšŒ ì‹¤íŒ¨!", {
               icon: "error",
             });
           }
@@ -127,7 +127,7 @@ export default {
         });
     },
     getMyList() {
-      // page¿Í size·Î µ¥ÀÌÅÍ¸¦ °¡Á®¿È.ex) 1~10±îÁöÀÖ´Ù¸é 0,5¸é 1~5 / 1,4ÀÎ °æ¿ì 5~8À» °¡Á®¿Â´Ù.
+      // pageì™€ sizeë¡œ ë°ì´í„°ë¥¼ ê°€ì ¸ì˜´.ex) 1~10ê¹Œì§€ìˆë‹¤ë©´ 0,5ë©´ 1~5 / 1,4ì¸ ê²½ìš° 5~8ì„ ê°€ì ¸ì˜¨ë‹¤.
       getMyList(this.page, this.size)
         .then((response) => {
           let postList = response.data.myPostList;
