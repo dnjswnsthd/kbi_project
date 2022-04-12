@@ -1,8 +1,15 @@
 <template>
   <v-container>
     <div class="startImage">
-      <img :src="main" alt="¸ÞÀÎÀÌ¹ÌÁö" />
+      <img :src="main" alt="ë©”ì¸ì´ë¯¸ì§€" />
     </div>
+    <div class="startText">
+      <p>startText</p>
+    </div>
+    <div class="mainText">
+      <p>mainText</p>
+    </div>
+
     <div class="btnBox">
       <v-row>
         <v-spacer></v-spacer>
@@ -10,7 +17,7 @@
         <v-spacer></v-spacer>
         <img
           :src="login"
-          alt="·Î±×ÀÎ  "
+          alt="ë¡œê·¸ì¸  "
           class="startIcon"
           @click="moveLogin()"
         />
@@ -19,7 +26,6 @@
     </div>
   </v-container>
 </template>
-
 <script>
 import { moveLogin, moveSignUp } from "../api/move.js";
 export default {

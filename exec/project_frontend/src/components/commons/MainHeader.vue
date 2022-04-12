@@ -24,13 +24,7 @@
   </header>
 </template>
 <script>
-import {
-  moveStart,
-  moveMain,
-  moveRecipeList,
-  moveSubscribe,
-  moveMyPage,
-} from "@/api/move.js";
+import { moveStart, moveMain, moveMyPage } from "@/api/move.js";
 import swal from "sweetalert";
 export default {
   name: "MainHeader",
@@ -47,14 +41,6 @@ export default {
     goMain() {
       // 메인으로 이동
       moveMain();
-    },
-    goShareRecipt() {
-      // 레시피 목록으로 이동
-      moveRecipeList(0);
-    },
-    goSubscribe() {
-      // 구독 페이지로 이동
-      moveSubscribe(0);
     },
     goMyPage() {
       // 마이 페이지로 이동

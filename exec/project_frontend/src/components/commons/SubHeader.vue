@@ -2,15 +2,15 @@
   <header>
     <v-row class="headerBox">
       <div @click="goStart" class="logo">
-        <img :src="logo" alt="·Î°í" />
+        <img :src="logo" alt="ï¿½Î°ï¿½" />
       </div>
       <v-spacer></v-spacer>
       <v-row class="menu">
         <div @click="goSignUp" class="menuList">
-          <img :src="signup" alt="È¸¿ø°¡ÀÔ ÀÌ¹ÌÁö" class="menuImg" />
+          <img :src="signup" alt="È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½" class="menuImg" />
         </div>
         <div class="menuList" @click="goLogin()">
-          <img :src="login" alt="·Î±×ÀÎ ÀÌ¹ÌÁö" class="menuImg" />
+          <img :src="login" alt="ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½" class="menuImg" />
         </div>
       </v-row>
     </v-row>
@@ -30,15 +30,15 @@ export default {
   },
   methods: {
     goStart() {
-      // ½ÃÀÛ ÆäÀÌÁö·Î ÀÌµ¿
+      // ì‹œìž‘ íŽ˜ì´ì§€ë¡œ ì´ë™
       moveStart();
     },
     goSignUp() {
-      // È¸¿ø°¡ÀÔ ÆäÀÌÁö·Î ÀÌµ¿
+      // íšŒì›ê°€ìž… íŽ˜ì´ì§€ë¡œ ì´ë™
       moveSignUp();
     },
     goLogin() {
-      // ·Î±×ÀÎ ÆäÀÌÁö·Î ÀÌµ¿
+      // ë¡œê·¸ì¸ íŽ˜ì´ì§€ë¡œ ì´ë™
       moveLogin();
     },
   },

@@ -1,6 +1,6 @@
 import http from "./axios.js";
 
-/* ·Î±×ÀÎ */
+/* ë¡œê·¸ì¸ */
 function login(userinput, success, fail) {
   const user = {
     email: userinput.id,
@@ -15,30 +15,30 @@ async function findById(success, fail) {
   );
   await http.get(`/user/info`).then(success).catch(fail);
 }
-/* È¸¿ø°¡ÀÔ */
+/* íšŒì›ê°€ì… */
 function joinUser(user) {
   return http.post(`user/join`, user);
 }
-/* Áßº¹ idÃ¼Å© */
+/* ì¤‘ë³µ idì²´í¬ */
 function checkId(email) {
   return http.get(`user/idcheck/${email}`);
 }
 
-/* Áßº¹ ´Ğ³×ÀÓÃ¼Å© */
+/* ì¤‘ë³µ ë‹‰ë„¤ì„ì²´í¬ */
 function checkNickName(nickname) {
   return http.get(`user/nickcheck/${nickname}`);
 }
 
-/* ³» Á¤º¸ ¾ò±â */
+/* ë‚´ ì •ë³´ ì–»ê¸° */
 function getMyInfo() {
   return http.get(`user/info/`);
 }
 
-/* ºñ¹Ğ¹øÈ£ º¯°æ */
+/* ë¹„ë°€ë²ˆí˜¸ ë³€ê²½ */
 function changePassword(email, newPwd, nickname) {
   return http.put(`user/modify`, { email: email, pwd: newPwd, nick: nickname });
 }
-/* ³» Á¤º¸ ¼öÁ¤ */
+/* ë‚´ ì •ë³´ ìˆ˜ì • */
 function updateUser(id, email, pwd, nickname) {
   return http.put(`user/modify`, {
     id: id,
@@ -47,12 +47,12 @@ function updateUser(id, email, pwd, nickname) {
     nick: nickname,
   });
 }
-/* Å»Åğ ÇÏ±â */
+/* íƒˆí‡´ í•˜ê¸° */
 function deleteUser() {
   return http.delete(`user/delete`);
 }
 
-/* ±¸µ¶¸®½ºÆ® °¡Á®¿À±â */
+/* êµ¬ë…ë¦¬ìŠ¤íŠ¸ ê°€ì ¸ì˜¤ê¸° */
 function getMyList(page, size) {
   return http.get(`post/mylist/${page}/${size}`);
 }
