@@ -1,6 +1,6 @@
 import http from "./axios.js";
 
-/* ï¿½Î±ï¿½ï¿½ï¿½ */
+/* ·Î±×ÀÎ */
 function login(userinput, success, fail) {
   const user = {
     email: userinput.id,
@@ -15,30 +15,30 @@ async function findById(success, fail) {
   );
   await http.get(`/user/info`).then(success).catch(fail);
 }
-/* È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* È¸¿ø°¡ÀÔ */
 function joinUser(user) {
   return http.post(`user/join`, user);
 }
-/* ï¿½ßºï¿½ idÃ¼Å© */
+/* Áßº¹ idÃ¼Å© */
 function checkId(email) {
   return http.get(`user/idcheck/${email}`);
 }
 
-/* ï¿½ßºï¿½ ï¿½Ð³ï¿½ï¿½ï¿½Ã¼Å© */
+/* Áßº¹ ´Ð³×ÀÓÃ¼Å© */
 function checkNickName(nickname) {
   return http.get(`user/nickcheck/${nickname}`);
 }
 
-/* ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
+/* ³» Á¤º¸ ¾ò±â */
 function getMyInfo() {
   return http.get(`user/info/`);
 }
 
-/* ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½ */
+/* ºñ¹Ð¹øÈ£ º¯°æ */
 function changePassword(email, newPwd, nickname) {
   return http.put(`user/modify`, { email: email, pwd: newPwd, nick: nickname });
 }
-/* ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+/* ³» Á¤º¸ ¼öÁ¤ */
 function updateUser(id, email, pwd, nickname) {
   return http.put(`user/modify`, {
     id: id,
@@ -47,12 +47,12 @@ function updateUser(id, email, pwd, nickname) {
     nick: nickname,
   });
 }
-/* Å»ï¿½ï¿½ ï¿½Ï±ï¿½ */
+/* Å»Åð ÇÏ±â */
 function deleteUser() {
   return http.delete(`user/delete`);
 }
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ±¸µ¶¸®½ºÆ® °¡Á®¿À±â */
 function getMyList(page, size) {
   return http.get(`post/mylist/${page}/${size}`);
 }

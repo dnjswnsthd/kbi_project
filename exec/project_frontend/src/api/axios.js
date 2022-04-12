@@ -1,5 +1,5 @@
 import axios from "axios";
-// axios ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
+// axios °´Ã¼ »ý¼º
 export default axios.create({
   baseURL: "https://k4d109.p.ssafy.io/api/", // baseUrl
   headers: {
