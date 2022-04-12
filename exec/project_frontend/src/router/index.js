@@ -8,7 +8,7 @@ import SubHeader from "../components/commons/SubHeader.vue";
 import SignUp from "../views/member/SignUp.vue";
 import Login from "../views/member/Login.vue";
 
-/** °°Àº ÆäÀÌÁö¿¡¼­ °°Àº ÆäÀÌÁö·Î $router.push ÇÑ ¿À·ü¸¦ Ã³¸®ÇÔ (ex : È¨ÆäÀÌÁö¿¡¼­ È¨ ·Î°í¸¦ Å¬¸¯ÇÑ °æ¿ì) */
+/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ $router.push ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ (ex : È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¨ ï¿½Î°ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½) */
 const originalPush = VueRouter.prototype.push;
 VueRouter.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(() => {

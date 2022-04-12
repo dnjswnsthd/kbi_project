@@ -24,10 +24,10 @@ export default new Vuex.Store({
   actions: {
     async GET_USER_INFO() {
       await findById(
-        // user.js¿¡ ÀÖ´Â findByid
+        // user.jsï¿½ï¿½ ï¿½Ö´ï¿½ findByid
         (response) => {
           if (response.data.message !== "success") {
-            console.log("À¯Àú Á¤º¸ ¾øÀ½!!");
+            console.log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!!");
           }
         }
       );
