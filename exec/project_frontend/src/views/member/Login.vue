@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div class="loginFormBox">
-      <h1 class="loginTitle">·Î ±× ÀÎ</h1>
+      <h1 class="loginTitle">ë¡œ ê·¸ ì¸</h1>
       <v-text-field
         label="ID (Email)"
         placeholder="ex)ssafy@naver.com"
@@ -9,16 +9,16 @@
         v-model="user.id"
       ></v-text-field>
       <v-text-field
-        label="PW (´ë¼Ò¹®ÀÚ Æ¯¼ö¹®ÀÚ Á¶ÇÕ 8ÀÚ ÀÌ»ó)"
+        label="PW (ëŒ€ì†Œë¬¸ìž íŠ¹ìˆ˜ë¬¸ìž ì¡°í•© 8ìž ì´ìƒ)"
         placeholder="ssafy123!"
         type="password"
         v-model="user.password"
       ></v-text-field>
       <v-row>
         <v-spacer></v-spacer>
-        <button class="resetBtn">ÃÊ±âÈ­</button>
+        <button class="resetBtn">ì´ˆê¸°í™”</button>
 
-        <button class="loginBtn" @click="confirm()">·Î±×ÀÎ</button>
+        <button class="loginBtn" @click="confirm()">ë¡œê·¸ì¸</button>
       </v-row>
     </div>
   </v-container>
@@ -46,8 +46,8 @@ export default {
         (response) => {
           if (response.data.message === "success") {
             let token = response.data["X-AUTH-TOKEN"];
-            this.$store.commit("setIsLogined", true); // vuexÀÇ ·Î±×ÀÎ »óÅÂ¸¦ true·Î º¯°æ
-            sessionStorage.setItem("X-AUTH-TOKEN", token); // session½ºÅä¸®Áö¿¡ tokenÀ» ÀúÀå.
+            this.$store.commit("setIsLogined", true); // vuexì˜ ë¡œê·¸ì¸ ìƒíƒœë¥¼ trueë¡œ ë³€ê²½
+            sessionStorage.setItem("X-AUTH-TOKEN", token); // sessionìŠ¤í† ë¦¬ì§€ì— tokenì„ ì €ìž¥.
             // eslint-disable-next-line prettier/prettier
             http.defaults.headers["X-AUTH-TOKEN"] =
               // eslint-disable-next-line prettier/prettier
@@ -57,15 +57,15 @@ export default {
         },
         (error) => {
           if (this.user.id == "") {
-            swal("¾ÆÀÌµð¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä!", {
+            swal("ì•„ì´ë””ë¥¼ ìž…ë ¥í•´ ì£¼ì„¸ìš”!", {
               icon: "error",
             });
           } else if (this.user.pw == "") {
-            swal("ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä!", {
+            swal("ë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•´ ì£¼ì„¸ìš”!", {
               icon: "error",
             });
           } else {
-            swal("¾ÆÀÌµð ¶Ç´Â ºñ¹Ð¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.", {
+            swal("ì•„ì´ë”” ë˜ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.", {
               icon: "error",
             });
           }

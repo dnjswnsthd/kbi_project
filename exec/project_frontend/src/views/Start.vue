@@ -28,6 +28,7 @@ export default {
     return {
       signup: require("@/assets/images/header/sign-up.png"),
       login: require("@/assets/images/header/login.png"),
+      main: require("@/assets/images/header/mainIntro.png"),
     };
   },
   methods: {

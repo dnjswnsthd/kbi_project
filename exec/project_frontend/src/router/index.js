@@ -1,6 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-
 import Main from "@/views/Main.vue";
 import Start from "@/views/Start.vue";
 import MainHeader from "../components/commons/MainHeader.vue";
