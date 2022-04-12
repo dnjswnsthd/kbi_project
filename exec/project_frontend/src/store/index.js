@@ -27,7 +27,7 @@ export default new Vuex.Store({
         // user.js findByid
         (response) => {
           if (response.data.message !== "success") {
-            console.log("���� ���� ����!!");
+            console.log('유저 정보 없음!!');
           }
         }
       );
