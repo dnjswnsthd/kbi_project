@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div class="signFormBox">
-      <h1 class="signTitle">È¸ ¿ø °¡ ÀÔ</h1>
+      <h1 class="signTitle">íšŒ ì› ê°€ ì…</h1>
       <v-row>
         <v-text-field
           label="ID (Email)"
@@ -11,19 +11,19 @@
         ></v-text-field>
         <v-spacer></v-spacer>
         <div class="duplicateCheckBox">
-          <v-btn @click="checkId()">ID Áßº¹È®ÀÎ</v-btn>
+          <v-btn @click="checkId()">ID ì¤‘ë³µí™•ì¸</v-btn>
         </div>
       </v-row>
       <v-text-field
-        label="PW (´ë¼Ò¹®ÀÚ Æ¯¼ö¹®ÀÚ ¼ıÀÚ Á¶ÇÕ 8ÀÚ ÀÌ»ó)"
+        label="PW (ëŒ€ì†Œë¬¸ì íŠ¹ìˆ˜ë¬¸ì ìˆ«ì ì¡°í•© 8ì ì´ìƒ)"
         placeholder="ssafy123!"
         type="password"
         v-model="user.pwd"
       >
       </v-text-field>
       <v-text-field
-        label="PW È®ÀÎ"
-        placeholder="È®ÀÎÀ» À§ÇØ ÇÑ¹ø ´õ ÀÔ·ÂÇØ ÁÖ¼¼¿ä."
+        label="PW í™•ì¸"
+        placeholder="í™•ì¸ì„ ìœ„í•´ í•œë²ˆ ë” ì…ë ¥í•´ ì£¼ì„¸ìš”."
         type="password"
         v-model="pwdchecked"
       >
@@ -31,22 +31,22 @@
 
       <v-row>
         <v-text-field
-          label="´Ğ³×ÀÓ"
-          placeholder="»ì¸²¿Õ"
+          label="ë‹‰ë„¤ì„"
+          placeholder="ì‚´ë¦¼ì™•"
           type="string"
           v-model="user.nick"
         ></v-text-field>
         <v-spacer></v-spacer>
         <div class="duplicateCheckBox">
-          <v-btn @click="checkNick">´Ğ³×ÀÓ Áßº¹È®ÀÎ</v-btn>
+          <v-btn @click="checkNick">ë‹‰ë„¤ì„ ì¤‘ë³µí™•ì¸</v-btn>
         </div>
       </v-row>
 
       <v-row>
         <v-spacer></v-spacer>
-        <button class="resetBtn" @click="reset">ÃÊ±âÈ­</button>
+        <button class="resetBtn" @click="reset">ì´ˆê¸°í™”</button>
 
-        <button class="signupBtn" @click="signUp">µî·Ï</button>
+        <button class="signupBtn" @click="signUp">ë“±ë¡</button>
       </v-row>
     </div>
   </v-container>
@@ -63,6 +63,7 @@ export default {
     return {
       user: {
         email: "",
+        pw: "",
         pwd: "",
         nick: "",
       },
@@ -81,60 +82,60 @@ export default {
       this.imageName = file.name;
     },
     validPassword(password) {
-      // ºñ¹Ğ¹øÈ£ Ã¼Å©
+      // ë¹„ë°€ë²ˆí˜¸ ì²´í¬
       return checkPasswordValid(password);
     },
     validEmail(email) {
-      // emailÃ¼Å©
+      // emailì²´í¬
       return checkEmailValid(email);
     },
     signUp() {
-      // ºó °ª Ã¼Å© ÈÄ  È¸¿ø°¡ÀÔ.
+      // ë¹ˆ ê°’ ì²´í¬ í›„  íšŒì›ê°€ì….
       if (this.user.email == "") {
-        swal("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!", {
+        swal("ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”!", {
           icon: "error",
         });
       } else if (!this.idChecked) {
-        swal("¾ÆÀÌµğ Áßº¹ °Ë»ç¸¦ ÁøÇàÇØÁÖ¼¼¿ä!", {
+        swal("ì•„ì´ë”” ì¤‘ë³µ ê²€ì‚¬ë¥¼ ì§„í–‰í•´ì£¼ì„¸ìš”!", {
           icon: "error",
         });
       } else if (!this.validPassword(this.user.pwd)) {
         swal(
-          "ºñ¹Ğ¹øÈ£¸¦ ¼ıÀÚ¿Í ¹®ÀÚ, Æ¯¼ö¹®ÀÚ Æ÷ÇÔ ÇüÅÂÀÇ 8ÀÚ¸®·Î ÀÔ·ÂÇØÁÖ¼¼¿ä!",
+          "ë¹„ë°€ë²ˆí˜¸ë¥¼ ìˆ«ìì™€ ë¬¸ì, íŠ¹ìˆ˜ë¬¸ì í¬í•¨ í˜•íƒœì˜ 8ìë¦¬ë¡œ ì…ë ¥í•´ì£¼ì„¸ìš”!",
           {
             icon: "error",
           }
         );
       } else if (this.user.pwd == "") {
-        swal("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!", {
+        swal("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”!", {
           icon: "error",
         });
       } else if (this.user.pw != this.pwdChecked) {
-        swal("ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù!", {
+        swal("ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤!", {
           icon: "error",
         });
       } else if (this.pwdChecked == "") {
-        swal("ºñ¹Ğ¹øÈ£¸¦ È®ÀÎÇØÁÖ¼¼¿ä!", {
+        swal("ë¹„ë°€ë²ˆí˜¸ë¥¼ í™•ì¸í•´ì£¼ì„¸ìš”!", {
           icon: "error",
         });
       } else if (this.user.nick == "") {
-        swal("»ç¿ëÇÏ½Ç ´Ğ³×ÀÓÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä!", {
+        swal("ì‚¬ìš©í•˜ì‹¤ ë‹‰ë„¤ì„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”!", {
           icon: "error",
         });
       } else if (!this.nickChecked) {
-        swal("´Ğ³×ÀÓ Áßº¹ °Ë»ç¸¦ ÁøÇàÇØÁÖ¼¼¿ä!", {
+        swal("ë‹‰ë„¤ì„ ì¤‘ë³µ ê²€ì‚¬ë¥¼ ì§„í–‰í•´ì£¼ì„¸ìš”!", {
           icon: "error",
         });
       } else {
         joinUser(this.user)
           .then(() => {
-            swal("È¸¿ø°¡ÀÔÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù", {
+            swal("íšŒì›ê°€ì…ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤", {
               icon: "success",
-              closeOnClickOutside: false, //¾Ë¶÷Ã¢À» Á¦¿ÜÇÏ°í ´Ù¸¥ °÷ Å¬¸¯½Ã ³Ñ¾î°¡Áö ¾ÊÀ½
+              closeOnClickOutside: false, //ì•ŒëŒì°½ì„ ì œì™¸í•˜ê³  ë‹¤ë¥¸ ê³³ í´ë¦­ì‹œ ë„˜ì–´ê°€ì§€ ì•ŠìŒ
             }).then(() => moveStart());
           })
           .catch(() => {
-            swal("È¸¿ø°¡ÀÔ ½ÇÆĞ", {
+            swal("íšŒì›ê°€ì… ì‹¤íŒ¨", {
               icon: " error",
             });
           });
@@ -142,27 +143,27 @@ export default {
     },
     checkId() {
       if (this.user.email == "") {
-        swal("ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä!", {
+        swal("ì´ë©”ì¼ì„ ì…ë ¥í•´ì£¼ì„¸ìš”!", {
           icon: "warning",
         });
       } else if (!this.validEmail(this.user.email)) {
-        // ÀÌ¸ŞÀÏ Çü½ÄÀÌ ¾Æ´Ò ½Ã
-        swal("ÀÌ¸ŞÀÏ ¾ç½ÄÀ» ¸ÂÃçÁÖ¼¼¿ä!", {
+        // ì´ë©”ì¼ í˜•ì‹ì´ ì•„ë‹ ì‹œ
+        swal("ì´ë©”ì¼ ì–‘ì‹ì„ ë§ì¶°ì£¼ì„¸ìš”!", {
           icon: "error",
         });
       } else {
-        // Áßº¹Ã¼Å©½Ã id¸¦ °¡Áö°í Ã¼Å©.
+        // ì¤‘ë³µì²´í¬ì‹œ idë¥¼ ê°€ì§€ê³  ì²´í¬.
         checkId(this.user.email)
           .then((response) => {
             if (response.data.message == "fail") {
-              // failÀÌ ¿À¸é ÀÌ¹Ì Á¸ÀçÇÏ´Â ¾ÆÀÌµğ.
-              swal("ÀÌ¹Ì Á¸ÀçÇÏ´Â ¾ÆÀÌµğÀÔ´Ï´Ù!!", {
+              // failì´ ì˜¤ë©´ ì´ë¯¸ ì¡´ì¬í•˜ëŠ” ì•„ì´ë””.
+              swal("ì´ë¯¸ ì¡´ì¬í•˜ëŠ” ì•„ì´ë””ì…ë‹ˆë‹¤!!", {
                 icon: "warning",
               });
               this.isChecked = false;
             } else if (response.data.message == "success") {
-              // success¸é »ç¿ë°¡´ÉÇÑ ¾ÆÀÌµğ.
-              swal("»ç¿ë°¡´ÉÇÑ ´Ğ³×ÀÓÀÔ´Ï´Ù!!", {
+              // successë©´ ì‚¬ìš©ê°€ëŠ¥í•œ ì•„ì´ë””.
+              swal("ì‚¬ìš©ê°€ëŠ¥í•œ ë‹‰ë„¤ì„ì…ë‹ˆë‹¤!!", {
                 icon: "success",
               });
               this.idChecked = true;
@@ -173,19 +174,19 @@ export default {
     },
     checkNick() {
       if (this.user.nick == "") {
-        swal("´Ğ³×ÀÓÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä!", {
+        swal("ë‹‰ë„¤ì„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”!", {
           icon: "warning",
         });
       } else {
         checkNickName(this.user.nick)
           .then((response) => {
             if (response.data.message == "fail") {
-              swal("ÀÌ¹Ì Á¸ÀçÇÏ´Â ´Ğ³×ÀÓÀÔ´Ï´Ù!!", {
+              swal("ì´ë¯¸ ì¡´ì¬í•˜ëŠ” ë‹‰ë„¤ì„ì…ë‹ˆë‹¤!!", {
                 icon: "warning",
               });
               this.nickChecked = false;
             } else if (response.data.message == "success") {
-              swal("»ç¿ë°¡´ÉÇÑ ´Ğ³×ÀÓÀÔ´Ï´Ù!!", {
+              swal("ì‚¬ìš©ê°€ëŠ¥í•œ ë‹‰ë„¤ì„ì…ë‹ˆë‹¤!!", {
                 icon: "success",
               });
               this.nickChecked = true;

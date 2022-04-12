@@ -41,12 +41,6 @@ export default {
       // 로그인 페이지로 이동
       moveLogin();
     },
-    toggleMenu() {
-      // 메뉴 열고 닫는 메소드
-      // openMenu라는 클래스를 toggle하면서 메뉴 열고 닫음.
-      const menu = document.querySelector(".menu");
-      menu.classList.toggle("openMenu");
-    },
   },
 };
 </script>
