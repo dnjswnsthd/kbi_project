@@ -4,7 +4,6 @@ import Main from "@/views/Main.vue";
 import Start from "@/views/Start.vue";
 import MainHeader from "../components/commons/MainHeader.vue";
 import SubHeader from "../components/commons/SubHeader.vue";
-
 import SignUp from "../views/member/SignUp.vue";
 import Login from "../views/member/Login.vue";
 
