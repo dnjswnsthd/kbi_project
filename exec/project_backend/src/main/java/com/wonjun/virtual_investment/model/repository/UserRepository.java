@@ -1,6 +1,6 @@
-package com.wonjun.project_backend.model.repository;
+package com.wonjun.virtual_investment.model.repository;
 
-import com.wonjun.project_backend.model.User;
+import com.wonjun.virtual_investment.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

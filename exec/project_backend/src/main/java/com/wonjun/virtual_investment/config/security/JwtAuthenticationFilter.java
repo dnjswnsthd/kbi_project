@@ -1,4 +1,4 @@
-package com.wonjun.project_backend.config.security;
+package com.wonjun.virtual_investment.config.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -13,9 +13,9 @@ import java.io.IOException;
 
 public class JwtAuthenticationFilter extends GenericFilterBean {
 	
-	private com.wonjun.project_backend.config.security.JwtTokenProvider jwtTokenProvider;
+	private com.wonjun.virtual_investment.config.security.JwtTokenProvider jwtTokenProvider;
 
-	public JwtAuthenticationFilter(com.wonjun.project_backend.config.security.JwtTokenProvider jwtTokenProvider) {
+	public JwtAuthenticationFilter(com.wonjun.virtual_investment.config.security.JwtTokenProvider jwtTokenProvider) {
 		this.jwtTokenProvider = jwtTokenProvider;
 	}
 

@@ -1,4 +1,4 @@
-package com.wonjun.project_backend.config;
+package com.wonjun.virtual_investment.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.servers.Server;

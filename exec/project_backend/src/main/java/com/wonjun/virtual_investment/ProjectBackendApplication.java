@@ -1,4 +1,4 @@
-package com.wonjun.project_backend;
+package com.wonjun.virtual_investment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

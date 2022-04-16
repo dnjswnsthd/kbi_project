@@ -1,4 +1,4 @@
-package com.wonjun.project_backend.model;
+package com.wonjun.virtual_investment.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

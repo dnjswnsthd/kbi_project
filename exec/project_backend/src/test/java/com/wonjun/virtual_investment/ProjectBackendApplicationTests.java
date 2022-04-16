@@ -1,4 +1,4 @@
-package com.wonjun.project_backend;
+package com.wonjun.virtual_investment;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

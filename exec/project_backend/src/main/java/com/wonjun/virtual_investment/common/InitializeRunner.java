@@ -1,4 +1,4 @@
-package com.wonjun.project_backend.common;
+package com.wonjun.virtual_investment.common;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

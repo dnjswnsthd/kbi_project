@@ -1,4 +1,4 @@
-package com.wonjun.project_backend.config.security;
+package com.wonjun.virtual_investment.config.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;

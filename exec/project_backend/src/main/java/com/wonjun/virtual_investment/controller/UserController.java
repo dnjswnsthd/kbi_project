@@ -1,9 +1,9 @@
-package com.wonjun.project_backend.controller;
+package com.wonjun.virtual_investment.controller;
 
-import com.wonjun.project_backend.config.security.JwtTokenProvider;
-import com.wonjun.project_backend.model.dto.UserDto;
-import com.wonjun.project_backend.model.dto.UserInfoDto;
-import com.wonjun.project_backend.model.service.UserService;
+import com.wonjun.virtual_investment.config.security.JwtTokenProvider;
+import com.wonjun.virtual_investment.model.dto.UserDto;
+import com.wonjun.virtual_investment.model.dto.UserInfoDto;
+import com.wonjun.virtual_investment.model.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

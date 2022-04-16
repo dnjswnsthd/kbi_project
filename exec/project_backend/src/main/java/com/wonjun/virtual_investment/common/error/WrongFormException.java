@@ -1,4 +1,4 @@
-package com.wonjun.project_backend.common.error;
+package com.wonjun.virtual_investment.common.error;
 
 public class WrongFormException extends Exception {
 	private static final long serialVersionUID = 1L;

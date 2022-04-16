@@ -1,4 +1,4 @@
-package com.wonjun.project_backend.config;
+package com.wonjun.virtual_investment.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

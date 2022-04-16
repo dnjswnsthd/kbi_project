@@ -1,12 +1,12 @@
-package com.wonjun.project_backend.model.service;
+package com.wonjun.virtual_investment.model.service;
 
-import com.wonjun.project_backend.common.error.LoginErrorException;
-import com.wonjun.project_backend.common.error.WrongFormException;
-import com.wonjun.project_backend.common.error.WrongPasswordException;
-import com.wonjun.project_backend.model.User;
-import com.wonjun.project_backend.model.dto.UserDto;
-import com.wonjun.project_backend.model.repository.UserRepository;
-import com.wonjun.project_backend.model.dto.UserInfoDto;
+import com.wonjun.virtual_investment.common.error.LoginErrorException;
+import com.wonjun.virtual_investment.common.error.WrongFormException;
+import com.wonjun.virtual_investment.common.error.WrongPasswordException;
+import com.wonjun.virtual_investment.model.User;
+import com.wonjun.virtual_investment.model.dto.UserDto;
+import com.wonjun.virtual_investment.model.repository.UserRepository;
+import com.wonjun.virtual_investment.model.dto.UserInfoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		User user = userRepository.findById(Integer.parseInt(username))
 				.orElseThrow(() -> new UsernameNotFoundException("사용자를 찾을 수 없습니다."));
 
-		return new com.wonjun.project_backend.model.CustomUserDetail(user);
+		return new com.wonjun.virtual_investment.model.CustomUserDetail(user);
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package com.wonjun.project_backend.model.dto;
+package com.wonjun.virtual_investment.model.dto;
 
 public class UserDto {
     private int id;
