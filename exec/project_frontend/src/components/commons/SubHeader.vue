@@ -2,15 +2,15 @@
   <header>
     <v-row class="headerBox">
       <div @click="goStart" class="logo">
-        <img :src="logo" alt="�ΰ�" />
+        <img :src="logo" alt="로고" />
       </div>
       <v-spacer></v-spacer>
       <v-row class="menu">
         <div @click="goSignUp" class="menuList">
-          <img :src="signup" alt="ȸ������ �̹���" class="menuImg" />
+          <img :src="signup" alt="회원가입" class="menuImg" />
         </div>
         <div class="menuList" @click="goLogin()">
-          <img :src="login" alt="�α��� �̹���" class="menuImg" />
+          <img :src="login" alt="로그인" class="menuImg" />
         </div>
       </v-row>
     </v-row>
