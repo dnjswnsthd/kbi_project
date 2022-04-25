@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @OpenAPIDefinition(servers = {
 		@Server(url = "http://localhost:8000/api", description = "localhost")
-		/*@Server(url = "https://k4d109.p.ssafy.io/api", description = "AWS Server"),*/
+		/*@Server(url = "http://23.20.101.106/api", description = "AWS Server"),*/
 })
 public class SwaggerConfig {
 	@Bean
