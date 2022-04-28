@@ -1,32 +1,15 @@
-# node 기반의 이미지로 생성된다.
-FROM node:latest as build-stage
-
-# RUN, CMD, ENTRYPOINT의 명령이 실행될 디렉터리
-WORKDIR /tki
-
-# package*.json이 WORKDIR에 복사된다.
+FROM node:lts-alpine as build-stage
+WORKDIR /kbi_project
 COPY package*.json ./
 
-# 복사했으니 디펜던시 설치
 RUN npm install
-
-# 소스코드 복사
 COPY . .
-
-# build해서 /dist 폴더에 빌드 파일 생성
 RUN npm run build
 
-# nginx 이미지를 받는다.
-FROM nginx as production-stage 
+FROM nginx:stable-alpine as production-stage
+RUN rm /etc/nginx/conf.d/default.conf
+COPY ./nginx/nginx.conf /etc/nginx/conf.d/nginx.conf
 
-# app 디렉터리 생성 
-RUN mkdir /tki
-
-# builder에서 빌드한 바이너리를 실행할 이미지로 전달해주기 위해 copy --from 옵션을 사용하여 실행 이미지로 전달
-COPY --from=build-stage /tki/dist /tki
-
-# 작성한 nginx 설정파일을 복사
-COPY nginx.conf /etc/nginx/nginx.conf 
-
-# 변경된 설정을 잘 적용하기 위해 재시작
-RUN service nginx restart 
+COPY --from=build-stage ./kbi_project/dist /usr/share/nginx/html/
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
