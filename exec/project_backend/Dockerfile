@@ -18,7 +18,7 @@
 # ENTRYPOINT
 # Docker image가 실행될 때 실행되어야할 기본 command를 지정
 # overrride 불가
-FROM openjdk:11-jdk-alpine
+FROM openjdk:11 as build
 VOLUME /tmp
 ADD ./target/project_backend-0.0.1-SNAPSHOP.jar app.jar
 ENV JAVA_OPTS=""
