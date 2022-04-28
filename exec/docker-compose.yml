@@ -1,0 +1,58 @@
+version: '3.7'
+
+services:
+    database:
+        image: mysql:8.0.28
+        container_name: mysql-kbi
+        ports:
+            - '3306:3306' # 접근 포트 설정
+        restart: unless-stopped
+        command:
+            - --character-set-server=utf8mb4
+            - --collation-server=utf8mb4_unicode_ci
+        environment:
+            MYSQL_ROOT_PASSWORD: dnjswns1!
+            MYSQL_USER: root
+            MYSQL_PASSWORD: dnjswns1!
+            MYSQL_DATABASE: 'kbi'
+            TZ: Asia/Seoul
+        networks:
+            - fridge_db
+        healthcheck:
+            test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+            timeout: 20s
+            retries: 10
+        volumes:
+            - ./dump-unb.sql:/docker-entrypoint-initdb.d/dump.sql
+    backend:
+        build:
+            context: ./project_backend
+            dockerfile: Dockerfile
+        image: kbi-back:tag
+        ports:
+            - '8000:8000'
+        container_name: kbi-back
+        networks:
+            - kbi_net
+            - kbi_db
+        depends_on:
+            database:
+                condition: service_healthy
+        environment:
+            SPRING_DATASOURCE_DRIVER-CLASS-NAME: com.mysql.cj.jdbc.Driver
+            SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/kbi?characterEncoding=UTF-8&serverTimezone=UTC
+            SPRING_DATASOURCE_USERNAME: root
+            SPRING_DATASOURCE_PASSWORD: dnjswns1!
+    frontend:
+        build:
+            context: ./project_frontend
+            dockerfile: Dockerfile-local
+        image: kib-front:tag
+        ports:
+            - '80:80'
+        container_name: kbi-front
+        networks:
+            - kbi_net
+networks:
+    kbi_net:
+    kbi_db:
