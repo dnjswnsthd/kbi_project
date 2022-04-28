@@ -17,7 +17,7 @@ services:
             MYSQL_DATABASE: 'kbi'
             TZ: Asia/Seoul
         networks:
-            - fridge_db
+            - kbi_db
         healthcheck:
             test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
             timeout: 20s
@@ -47,7 +47,7 @@ services:
         build:
             context: ./project_frontend
             dockerfile: Dockerfile-local
-        image: kib-front:tag
+        image: kbi-front:tag
         ports:
             - '80:80'
         container_name: kbi-front
