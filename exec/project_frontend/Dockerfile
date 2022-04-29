@@ -1,4 +1,4 @@
-FROM node:lts-alpine as build-stage
+FROM node:6.14.4 as build-stage
 WORKDIR /kbi_project
 COPY package*.json ./
 
