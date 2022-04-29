@@ -23,7 +23,7 @@ services:
             timeout: 20s
             retries: 10
         volumes:
-            - ./dump-unb.sql:/docker-entrypoint-initdb.d/dump.sql
+            - ./dump-kbi.sql:/docker-entrypoint-initdb.d/dump.sql
     backend:
         build:
             context: ./project_backend
