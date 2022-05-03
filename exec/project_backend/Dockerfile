@@ -22,4 +22,4 @@ FROM openjdk:11 as build
 VOLUME /tmp
 ADD ./build/libs/project_backend-0.0.1-SNAPSHOT.jar app.jar
 ENV JAVA_OPTS=""
-ENTRYPOINT ["java", "-jar", "/app.ja"]
+ENTRYPOINT ["java", "-jar", "/app.jar"]
