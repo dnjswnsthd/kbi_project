@@ -3,6 +3,7 @@ plugins {
 	id 'io.swagger.core.v3.swagger-gradle-plugin' version '2.2.0'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'com.palantir.docker' version '0.25.0'
 }
 
 group = 'com.wonjun'
@@ -37,4 +38,12 @@ dependencies {
 
 tasks.named('test') {
 	//useJUnitPlatform()
+}
+
+docker {
+	println("gradle docker-plugin start = spring-example:${project.version}")
+	name "spring-example:${project.version}"
+	files tasks.bootJar.outputs.files
+	tag 'DockerHub', "guswns3371/spring-example:${project.version}"
+	buildArgs(['JAR_FILE': tasks.bootJar.outputs.files.singleFile.name])
 }
