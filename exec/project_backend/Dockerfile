@@ -19,7 +19,7 @@
 # Docker image가 실행될 때 실행되어야할 기본 command를 지정
 # overrride 불가
 FROM adoptopenjdk/openjdk11:alpine-jre
-VOLUME /tmp
+VOLUME /home/ubuntu/project_backend
 ADD ./build/libs/project_backend-0.0.1-SNAPSHOT.jar app.jar
 ENV JAVA_OPTS=""
 ENTRYPOINT ["java", "-jar", "/app.jar"]
