@@ -1,5 +1,14 @@
-FROM lpicanco/java11-alpine
+FROM adoptopenjdk/openjdk11:latest as builder
+COPY gradlew .
+COPY gradle gradle
+COPY build.gradle .
+COPY settings.gradle .
+COPY src src
+RUN chmod +x ./gradlew
+RUN ./gradlew clean build
+
+FROM adoptopenjdk/openjdk11:latest
 VOLUME /tmp
-ARG JAR_FILE
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+COPY --from=builder build/libs/project_backend-0.0.1-SNAPSHOT.jar app.jar
+ENV JAVA_OPTS=""
+ENTRYPOINT ["java", "-jar", "/app.jar"]
