@@ -18,8 +18,19 @@
 # ENTRYPOINT
 # Docker image가 실행될 때 실행되어야할 기본 command를 지정
 # overrride 불가
-FROM openjdk:11 as build
-VOLUME /tmp
-ADD ./build/libs/project_backend-0.0.1-SNAPSHOT.jar app.jar
-ENV JAVA_OPTS=""
+FROM openjdk:11 as builder
+COPY gradlew.
+COPY gradle gradle
+COPY build.gradle.
+COPY src src
+RUN chmod +x ./gradlew
+RUN ./gradlew bootJAR
+
+FROM openjdk:11
+COPY --from=builder build/libs/*.jar app.jar
+EXPOSE 8000
 ENTRYPOINT ["java", "-jar", "/app.jar"]
+#VOLUME /tmp
+#ADD ./build/libs/project_backend-0.0.1-SNAPSHOT.jar app.jar
+#ENV JAVA_OPTS=""
+#ENTRYPOINT ["java", "-jar", "/app.jar"]
