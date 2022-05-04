@@ -26,14 +26,10 @@ RUN java -Djarmode=layertools -jar application.jar extract
 
 
 FROM adoptopenjdk/openjdk11:alpine-jre
-WORKDIR applicatioin
-ENV port 8000
+WORKDIR application
+ENV JAVA_OPTS=""
 COPY --from=builder application/dependencies/ ./
 COPY --from=builder application/spring-boot-loader/ ./
 COPY --from=builder application/snapshot-dependencies/ ./
 COPY --from=builder application/application/ ./
-ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"
-#VOLUME /home/ubuntu/project_backend
-#ADD ./build/libs/project_backend-0.0.1-SNAPSHOT.jar app.jar
-#ENV JAVA_OPTS=""
-#ENTRYPOINT ["java", "-jar", "/app.jar"]
+ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
