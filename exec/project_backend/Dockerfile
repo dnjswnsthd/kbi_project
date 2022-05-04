@@ -18,7 +18,7 @@
 # ENTRYPOINT
 # Docker image가 실행될 때 실행되어야할 기본 command를 지정
 # overrride 불가
-FROM adoptopenjdk/openjdk11:alpine-jre builder
+FROM gradle:jdk11 as builder
 WORKDIR application
 ARG JAR_FILE=build/libs/project_backend-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} application.jar
@@ -32,4 +32,4 @@ COPY --from=builder application/dependencies/ ./
 COPY --from=builder application/spring-boot-loader/ ./
 COPY --from=builder application/snapshot-dependencies/ ./
 COPY --from=builder application/application/ ./
-ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
