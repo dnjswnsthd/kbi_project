@@ -12,8 +12,7 @@ services:
             - --collation-server=utf8mb4_unicode_ci
         environment:
             MYSQL_ROOT_PASSWORD: dnjswns1!
-            MYSQL_USER: root
-            MYSQL_PASSWORD: dnjswns1!
+            MYSQL_ROOT_USER: root
             MYSQL_DATABASE: 'kbi'
             TZ: Asia/Seoul
         networks:
