@@ -20,12 +20,12 @@
 # overrride 불가
 FROM gradle:jdk11 as builder
 WORKDIR application
-ARG JAR_FILE=build/libs/project_backend-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} application.jar
 RUN java -Djarmode=layertools -jar application.jar extract
 
 
-FROM adoptopenjdk/openjdk11:alpine-jre
+FROM gradle:jdk11
 WORKDIR application
 ENV JAVA_OPTS=""
 COPY --from=builder application/dependencies/ ./
