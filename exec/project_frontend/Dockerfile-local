@@ -2,7 +2,7 @@ FROM node:lts-alpine as build-stage
 WORKDIR /kbi_project
 COPY package*.json ./
 
-RUN npm install
+RUN npm install -g npm@8.9.0
 COPY . .
 RUN npm run build
 
