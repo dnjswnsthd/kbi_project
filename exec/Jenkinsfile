@@ -58,7 +58,7 @@ pipeline {
 				sh 'docker run -d --name kbi_front \
 					-p 80:80 \
 					-p 443:443 \
-					-v /home/ubuntu/keys/:/var/jenkins_home/workspace/kbi_project/sslkey/ \
+					-v /home/ubuntu/keys/:/etc/letsencrypt/live/kingofinvestment.shop/ \
 					-e TZ=Asia/Seoul \
 					--network kbi_net \
 					kbi_front:latest'
