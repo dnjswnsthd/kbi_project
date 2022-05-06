@@ -53,7 +53,7 @@ services:
         networks:
             - kbi_net
         volumes:
-            - /home/ubuntu/keys/:/etc/letsencrypt/live/kingofinvestment.shop/
+            - /etc/letsencrypt/live/kingofinvestment.shop/:/etc/letsencrypt/live/kingofinvestment.shop/
 networks:
     kbi_net:
     kbi_db:
