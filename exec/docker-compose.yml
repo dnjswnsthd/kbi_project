@@ -45,7 +45,7 @@ services:
     frontend:
         build:
             context: ./project_frontend
-            dockerfile: Dockerfile-local
+            dockerfile: Dockerfile
         image: kbi-front:tag
         ports:
             - '80:80'
