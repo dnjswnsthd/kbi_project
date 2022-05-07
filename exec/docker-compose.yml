@@ -42,6 +42,8 @@ services:
             SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/kbi?characterEncoding=UTF-8&serverTimezone=UTC
             SPRING_DATASOURCE_USERNAME: root
             SPRING_DATASOURCE_PASSWORD: dnjswns1!
+        volumes:
+            - /var/jenkins_home/workspace/kbi_project/sslkey:/var/jenkins_home/workspace/kbi_project/sslkey
     frontend:
         build:
             context: ./project_frontend
@@ -53,7 +55,7 @@ services:
         networks:
             - kbi_net
         volumes:
-            - /etc/letsencrypt/live/kingofinvestment.shop/:/etc/letsencrypt/live/kingofinvestment.shop/
+            - /var/jenkins_home/workspace/kbi_project/sslkey:/var/jenkins_home/workspace/kbi_project/sslkey
 networks:
     kbi_net:
     kbi_db:
