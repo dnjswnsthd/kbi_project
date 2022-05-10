@@ -58,12 +58,12 @@ pipeline {
 				sh 'docker run -d --name kbi_front \
 					-p 80:80 \
 					-p 443:443 \
-					-v /etc/letsencrypt/live/kingofinvestment.shop/:/etc/letsencrypt/live/kingofinvestment.shop/ \
+					-v /var/jenkins_home/workspace/kbi_project/sslkey:/var/jenkins_home/workspace/kbi_project/sslkey \
 					-e TZ=Asia/Seoul \
 					--network kbi_net \
 					kbi_front:latest'
 				sh 'docker run -d --name kbi_back \
-					-v kbi-vol:/kbi \
+					-v kbi-vol:/kbi_project \
 					-e TZ=Asia/Seoul \
 					--network kbi_net \
 					kbi_back:latest'	

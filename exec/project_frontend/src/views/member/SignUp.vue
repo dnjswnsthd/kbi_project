@@ -25,7 +25,7 @@
         label="PW 확인"
         placeholder="확인을 위해 한번 더 입력해 주세요."
         type="password"
-        v-model="pwdchecked"
+        v-model="pwdChecked"
       >
       </v-text-field>
 
@@ -67,7 +67,7 @@ export default {
         pwd: "",
         nick: "",
       },
-      pwdchecked: "",
+      pwdChecked: "",
       idChecked: false,
       nickChecked: false,
     };
@@ -110,7 +110,7 @@ export default {
         swal("비밀번호를 입력해주세요!", {
           icon: "error",
         });
-      } else if (this.user.pw != this.pwdChecked) {
+      } else if (this.user.pwd != this.pwdChecked) {
         swal("비밀번호가 일치하지 않습니다!", {
           icon: "error",
         });
@@ -198,7 +198,7 @@ export default {
     reset() {
       this.user.email = "";
       this.user.pwd = "";
-      this.pwdchecked = "";
+      this.pwdChecked = "";
       this.user.nick = "";
     },
   },
