@@ -51,6 +51,7 @@ services:
         image: kbi-front:tag
         ports:
             - '80:80'
+            - '443:443'
         container_name: kbi-front
         networks:
             - kbi_net
