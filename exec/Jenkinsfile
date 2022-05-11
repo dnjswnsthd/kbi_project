@@ -30,24 +30,24 @@ pipeline {
             steps {
                 // front-end 및 back-end dockerfile 실행을 통해 image 생성
                 // -t : 이미지 이름과 tag 설정, 만약 이미지 이름만 설정하면 latest로 설정됨
-                sh 'docker build -t kbi_front:latest ./exec/project_frontend'
-                sh 'docker build -t kbi_back:latest ./exec/project_backend'
+                sh 'docker build -t kbi-front:latest ./exec/project_frontend'
+                sh 'docker build -t kbi-back:latest ./exec/project_backend'
             }
         }
         stage('Docker run') {
             agent any
             steps {
 				// 현재 동작중인 컨테이너 중 kbi_front의 이름을 가진 컨테이너를 stop
-				sh 'docker ps -f name=kbi_front -q \
+				sh 'docker ps -f name=kbi-front -q \
 					| xargs --no-run-if-empty docker container stop'
 				// 현재 동작중인 컨테이너 중_ kbi_back의 이름을 가진 컨테이너를 stop
-				sh 'docker ps -f name=kbi_back -q \
+				sh 'docker ps -f name=kbi-back -q \
 					| xargs --no-run-if-empty docker container stop'
 				// kbi_front의 이름을 가진 컨테이너를 삭제
-				sh 'docker container ls -a -f name=kbi_front -q \
+				sh 'docker container ls -a -f name=kbi-front -q \
 					| xargs -r docker container rm'
 				// kbi_back의 이름을 가진 컨테이너를 _삭제
-				sh 'docker container ls -a -f name=kbi_back -q \
+				sh 'docker container ls -a -f name=kbi-back -q \
 					| xargs -r docker container rm'
 				// docker image build 시 기존에 존재하던 이미지는
 				// dangling 상태가 되기 때문에 이미지를 일괄 삭제
@@ -55,18 +55,18 @@ pipeline {
 					docker rmi $(docker images -f "dangling=true" -q)'
 				// docker container 실행
 				// 하나의 docker network에 연결하여 통신이 가능하도록 설정
-				sh 'docker run -d --name kbi_front \
+				sh 'docker run -d --name kbi-front \
 					-p 80:80 \
 					-p 443:443 \
 					-v /var/jenkins_home/workspace/kbi_project/sslkey:/var/jenkins_home/workspace/kbi_project/sslkey \
 					-e TZ=Asia/Seoul \
 					--network kbi_net \
-					kbi_front:latest'
-				sh 'docker run -d --name kbi_back \
+					kbi-front:latest'
+				sh 'docker run -d --name kbi-back \
 					-v kbi-vol:/kbi_project \
 					-e TZ=Asia/Seoul \
 					--network kbi_net \
-					kbi_back:latest'	
+					kbi-back:latest'	
 			}
 		}
 	}
