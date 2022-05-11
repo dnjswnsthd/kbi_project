@@ -8,30 +8,11 @@ pipeline {
 	options { skipDefaultCheckout(true) }
 	// stage의 모음
 	stages {
-		// 실제 작업이 수행되는 블록
-		// 해당 stage 명으로 jenkins 화면에 표시된다
-		stage('Gradle test') {
-        steps {
-            script {
-                try {
-                    sh 'chmod 755 ./gradlew'
-                    sh 'docker-compose -f docker-compose.yml down'
-                    sh 'docker-compose -f docker-compose.yml up -d db migration'
-                    sh './gradlew clean build'
-                } catch (e) {
-                    sh 'echo Gradle test Fail!!!'
-                    slackSend (channel: '#jenkins-test', color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-                }
-            }
-        }
-    }
         stage('Docker build') {
             agent any
             steps {
-                // front-end 및 back-end dockerfile 실행을 통해 image 생성
-                // -t : 이미지 이름과 tag 설정, 만약 이미지 이름만 설정하면 latest로 설정됨
-                sh 'docker build -t kbi-front:latest ./exec/project_frontend'
-                sh 'docker build -t kbi-back:latest ./exec/project_backend'
+                sh 'docker build -t kbi-back:latest ./exec/'
+				sh 'docker build -t kbi-front:latest ./exec/'
             }
         }
         stage('Docker run') {
@@ -55,6 +36,11 @@ pipeline {
 					docker rmi $(docker images -f "dangling=true" -q)'
 				// docker container 실행
 				// 하나의 docker network에 연결하여 통신이 가능하도록 설정
+				sh 'docker run -d --name kbi-back \
+					-v kbi-vol:/kbi_project \
+					-e TZ=Asia/Seoul \
+					--network kbi_net \
+					kbi-back:latest'	
 				sh 'docker run -d --name kbi-front \
 					-p 80:80 \
 					-p 443:443 \
@@ -62,11 +48,6 @@ pipeline {
 					-e TZ=Asia/Seoul \
 					--network kbi_net \
 					kbi-front:latest'
-				sh 'docker run -d --name kbi-back \
-					-v kbi-vol:/kbi_project \
-					-e TZ=Asia/Seoul \
-					--network kbi_net \
-					kbi-back:latest'	
 			}
 		}
 	}
