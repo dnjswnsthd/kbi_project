@@ -11,8 +11,8 @@ pipeline {
         stage('Docker build') {
             agent any
             steps {
-				sh 'docker-compose build -t kbi-back:latest ./exec/'
-				sh 'docker-compose build -t kbi-front:latest ./exec/'
+				sh 'docker build -t kbi-back:latest ./exec/'
+				sh 'docker build -t kbi-front:latest ./exec/'
             }
         }
         stage('Docker run') {
