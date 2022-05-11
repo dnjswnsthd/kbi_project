@@ -4,7 +4,7 @@
       <img :src="main" alt="메인이미지" />
     </div>
     <div class="startText">
-      <p>startText</p>
+      <p>startText!!</p>
     </div>
     <div class="mainText">
       <p>mainText</p>
