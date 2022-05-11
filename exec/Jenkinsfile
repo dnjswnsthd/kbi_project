@@ -8,6 +8,9 @@ pipeline {
 	options { skipDefaultCheckout(true) }
 	// stage의 모음
 	stages {
+		stage('Start') {
+			agent any
+		}
         stage('Docker build') {
             agent any
             steps {
