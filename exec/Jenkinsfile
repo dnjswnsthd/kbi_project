@@ -11,8 +11,8 @@ pipeline {
         stage('Docker build') {
             agent any
             steps {
-				sh 'docker build -t kbi-back:latest ./exec/project_backend'
-				sh 'docker build -t kbi-front:latest ./exec/project_frontend'
+				sh 'docker build -t --privileged kbi-back:latest ./exec/project_backend'
+				sh 'docker build -t --privileged kbi-front:latest ./exec/project_frontend'
             }
         }
         stage('Docker run') {
