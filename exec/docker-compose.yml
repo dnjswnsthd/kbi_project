@@ -13,7 +13,7 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: dnjswns1!
             MYSQL_ROOT_USER: root
-            MYSQL_DATABASE: 'toydb'
+            MYSQL_DATABASE: 'kbi'
             TZ: Asia/Seoul
         networks:
             - kbi_db
