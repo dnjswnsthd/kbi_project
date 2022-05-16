@@ -8,12 +8,15 @@
         type="string"
         v-model="user.id"
       ></v-text-field>
-      <v-text-field
-        label="PW (대소문자 특수문자 조합 8자 이상)"
-        placeholder="ssafy123!"
-        type="password"
-        v-model="user.password"
-      ></v-text-field>
+      <form>
+        <v-text-field
+          label="PW (대소문자 특수문자 조합 8자 이상)"
+          placeholder="ssafy123!"
+          type="password"
+          v-model="user.password"
+          autocomplete="off"
+        ></v-text-field>
+      </form>
       <v-row>
         <v-spacer></v-spacer>
         <button class="resetBtn">초기화</button>
