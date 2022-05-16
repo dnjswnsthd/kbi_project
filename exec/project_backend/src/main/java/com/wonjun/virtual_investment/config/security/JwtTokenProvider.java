@@ -18,7 +18,7 @@ import java.util.Date;
 
 @Component
 public class JwtTokenProvider {
-	private String secretKey = "fridgeKey";
+	private String secretKey = "kbiKey-authorization-jwt-token-plz-longer";
 	// 만료 시간
 	private static final int EXPIRE_MINUTES = 60;
 	
