@@ -14,21 +14,24 @@
           <v-btn @click="checkId()">ID 중복확인</v-btn>
         </div>
       </v-row>
-      <v-text-field
-        label="PW (대소문자 특수문자 숫자 조합 8자 이상)"
-        placeholder="ssafy123!"
-        type="password"
-        v-model="user.pwd"
-      >
-      </v-text-field>
-      <v-text-field
-        label="PW 확인"
-        placeholder="확인을 위해 한번 더 입력해 주세요."
-        type="password"
-        v-model="pwdChecked"
-      >
-      </v-text-field>
-
+      <form>
+        <v-text-field
+          label="PW (대소문자 특수문자 숫자 조합 8자 이상)"
+          placeholder="ssafy123!"
+          type="password"
+          v-model="user.pwd"
+          autocomplete="off"
+        >
+        </v-text-field>
+        <v-text-field
+          label="PW 확인"
+          placeholder="확인을 위해 한번 더 입력해 주세요."
+          type="password"
+          v-model="pwdChecked"
+          autocomplete="off"
+        >
+        </v-text-field>
+      </form>
       <v-row>
         <v-text-field
           label="닉네임"
