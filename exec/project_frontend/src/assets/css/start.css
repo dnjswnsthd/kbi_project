@@ -4,7 +4,6 @@
     width: 300px;
     height: 280px;
 }
-
 .mainText {
     text-align: center;
     margin-bottom: 10px;
@@ -22,4 +21,30 @@
 .startIcon {
     width: 50px;
     height: 50px;
+}
+.up{
+    color: red;
+}
+.down{
+    color: blue;
+}
+strong{
+    font-size: 18px;
+}
+.total{
+    display: flex;
+    flex-direction: row;
+}
+.tradeTitle{
+    width: 50%;
+    text-align: left;
+    margin-left: 50px;
+}
+.america{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.left{
+    width: 50%;
+    text-align: left;
 }
