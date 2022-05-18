@@ -1,50 +1,104 @@
 @charset "utf-8";
-.startImage {
-    margin: 0 auto;
-    width: 300px;
-    height: 280px;
+#mainBackground {
+    position: relative;
 }
-.mainText {
-    text-align: center;
-    margin-bottom: 10px;
+.mainBackground img{
+  width: 100%;
+  height: 450px;
+  opacity: 0.7;
+  z-index: 1;
 }
-.startText {
-    text-align: center;
-    margin-bottom: 20px;
+.mainBackgroundContent {
+  position: absolute;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 2%;
+  text-align: center;
+  color: black;
+  z-index: 2;
 }
-.btnBox {
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
-    padding: 10px;
-    margin: 10px auto;
+.coinNumber {
+  width: 100%;
+  margin-top: 3%;
+  display: flex;
 }
-.startIcon {
-    width: 50px;
-    height: 50px;
+.coin {
+  width: 50%;
+  text-align: right;
+  border-right: 1.2px solid #74AFF7;
+  padding-right: 1%;
 }
-.up{
-    color: red;
+.market {
+  width: 50%;
+  text-align: left;
+  padding-left: 1%;
 }
-.down{
-    color: blue;
+.blue {
+  font-size: 48px;
+  color: #093687;
+  margin-right: 1.5%;
 }
-strong{
-    font-size: 18px;
+.gray {
+  font-size: 17px;
+  color: #7588aa;
 }
+.left {
+  margin-right: 2.5%;
+}
+.right {
+  margin-left: 1.5%;
+}
+.warning {
+  background: #2b2b2b
+}
+/* 코스피, 나스닥, 비트코인 가격 */
 .total{
-    display: flex;
-    flex-direction: row;
-}
-.tradeTitle{
-    width: 50%;
-    text-align: left;
-    margin-left: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #f4f5f8;
+  height: 200px;
+  margin-top: 3%;
 }
 .america{
-    padding-top: 10px;
-    padding-bottom: 10px;
+  width: 33%;
+  display: flex;
 }
-.left{
-    width: 50%;
-    text-align: left;
+.korea{
+  width: 33%;
+  margin-left: 5%;
+  display: flex;
 }
+.bit{
+  width: 33%;
+  display: flex;
+}
+.coinName{
+  width: 50%;
+  font-size: 30px;
+  /* font-weight: bold; */
+  font-family: inherit;
+}
+.coinDetail{
+  font-size: 16px;
+  color: #666;
+}
+.right {
+  text-align: right;
+}
+.coinPrice{
+  font-size: 30px;
+}
+.coinPercent{
+  font-size: 16px;
+}
+.up{
+  color: red;
+}
+.down{
+  color: blue;
+}
+strong{
+  font-size: 18px;
+}
+p { margin: 5px 0px 8px 0px; line-height: 120%; }

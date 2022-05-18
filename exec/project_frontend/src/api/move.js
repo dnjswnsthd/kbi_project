@@ -20,4 +20,15 @@ function moveMyPage() {
   return ROUTER.push({ name: "MyPage" });
 }
 
-export { moveLogin, moveSignUp, moveStart, moveMain, moveMyPage };
+function moveCoinTrade() {
+  return ROUTER.push({ name: "coinTrade" });
+}
+
+export {
+  moveLogin,
+  moveSignUp,
+  moveStart,
+  moveMain,
+  moveMyPage,
+  moveCoinTrade,
+};
