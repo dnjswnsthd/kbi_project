@@ -1,7 +1,8 @@
-/* eslint-disable prettier/prettier */
 import Vue from "vue";
 import Vuex from "vuex";
 import { findById } from "@/api/user.js";
+import bitcoinStore from "./bitcoinStore/bitcoinData";
+import tradeStore from "./tradeStore/tradeData";
 
 Vue.use(Vuex);
 
@@ -28,7 +29,7 @@ export default new Vuex.Store({
         // user.js findByid
         (response) => {
           if (response.data.message !== "success") {
-            console.log('유저 정보 없음!!');
+            console.log("유저 정보 없음!!");
           }
         }
       );
@@ -38,5 +39,8 @@ export default new Vuex.Store({
       sessionStorage.removeItem("X-AUTH-TOKEN");
     },
   },
-  modules: {},
+  modules: {
+    bitcoin: bitcoinStore,
+    trade: tradeStore,
+  },
 });

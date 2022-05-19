@@ -6,6 +6,7 @@ import MainHeader from "../components/commons/MainHeader.vue";
 import SubHeader from "../components/commons/SubHeader.vue";
 import SignUp from "../views/member/SignUp.vue";
 import Login from "../views/member/Login.vue";
+import BitcoinTrade from "../views/bitcoin/BitcoinTrade.vue";
 
 /** 같은 페이지에서 같은 페이지로 $router.push 한 오률를 처리함 (ex : 홈페이지에서 홈 로고를 클릭한 경우) */
 const originalPush = VueRouter.prototype.push;
@@ -36,6 +37,11 @@ const routes = [
     path: "/login",
     name: "Login",
     components: { default: Login, header: SubHeader },
+  },
+  {
+    path: "/bitcointrade",
+    name: "BitcoinTrade",
+    components: { default: BitcoinTrade, header: SubHeader },
   },
 ];
 

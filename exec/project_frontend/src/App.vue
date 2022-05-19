@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <router-view name="header"></router-view>
-
+    <v-divider class="divider"></v-divider>
     <transition name="component-fade" mode="out-in">
       <router-view></router-view>
     </transition>
