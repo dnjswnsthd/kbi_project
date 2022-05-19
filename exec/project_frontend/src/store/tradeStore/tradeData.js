@@ -1,22 +1,42 @@
 var axios = require("axios");
-var cheerio = require("cheerio");
+//var cheerio = require("cheerio");
 
 const state = {
   tradeLoaded: false,
-  koreaPrice: "",
-  koreaChange: [],
-  koreaCheck: "",
-  koreaPercent: "",
+  // koreaPrice: "",
+  // koreaChange: [],
+  // koreaCheck: "",
+  // koreaPercent: "",
 
-  americaPrice: "",
-  americaChange: [],
-  americaCheck: "",
-  americaPercent: "",
+  // americaPrice: "",
+  // americaChange: [],
+  // americaCheck: "",
+  // americaPercent: "",
 
   bitPrice: "",
   bitChange: "",
   bitCheck: "",
   bitPercent: "",
+
+  ethPrice: "",
+  ethChange: "",
+  ethCheck: "",
+  ethPercent: "",
+
+  xrpPrice: "",
+  xrpChange: "",
+  xrpCheck: "",
+  xrpPercent: "",
+
+  adaPrice: "",
+  adaChange: "",
+  adaCheck: "",
+  adaPercent: "",
+
+  solPrice: "",
+  solChange: "",
+  solCheck: "",
+  solPercent: "",
 };
 // vue의 computed와 비슷
 const getters = {};
@@ -45,96 +65,96 @@ const actions = {
   // },
 
   // eslint-disable-next-line no-unused-vars
-  koreaData({ state }) {
-    axios
-      .get("https://finance.naver.com/sise/sise_index.nhn?code=KOSPI")
-      .then((res) => {
-        var $ = cheerio.load(res.data);
-        state.tradeLoaded = true;
-        // 코스피 현재 가격
-        state.koreaPrice = $("#now_value").text().split(",");
-        state.koreaPrice = parseFloat(
-          state.koreaPrice[0] + state.koreaPrice[1]
-        );
+  // koreaData({ state }) {
+  //   axios
+  //     .get("https://finance.naver.com/sise/sise_index.nhn?code=KOSPI")
+  //     .then((res) => {
+  //       var $ = cheerio.load(res.data);
+  //       state.tradeLoaded = true;
+  //       // 코스피 현재 가격
+  //       state.koreaPrice = $("#now_value").text().split(",");
+  //       state.koreaPrice = parseFloat(
+  //         state.koreaPrice[0] + state.koreaPrice[1]
+  //       );
 
-        // 코스피 수치 증감
-        var beforeFilter = $("#change_value_and_rate > span").text();
-        state.koreaChange = parseFloat(
-          beforeFilter.substring(0, beforeFilter.length - 2)
-        );
+  //       // 코스피 수치 증감
+  //       var beforeFilter = $("#change_value_and_rate > span").text();
+  //       state.koreaChange = parseFloat(
+  //         beforeFilter.substring(0, beforeFilter.length - 2)
+  //       );
 
-        // 코스피 상승, 하락 구분
-        state.koreaCheck = beforeFilter.substring(
-          beforeFilter.length - 2,
-          beforeFilter.length
-        );
+  //       // 코스피 상승, 하락 구분
+  //       state.koreaCheck = beforeFilter.substring(
+  //         beforeFilter.length - 2,
+  //         beforeFilter.length
+  //       );
 
-        // 코스피 전날 대비 증감% - ((현재가-전일종가)/전일종가 * 100).
-        // this.koreaPercent = parseFloat(this.koreaChange)/parseFloat(this.koreaPrice)
-        if (state.koreaCheck === "하락") {
-          state.koreaPercent = (
-            ((state.koreaPrice - (state.koreaPrice + state.koreaChange)) /
-              (state.koreaPrice + state.koreaChange)) *
-            100
-          ).toFixed(2);
-        } else if (state.koreaCheck === "상승") {
-          state.koreaPercent = (
-            ((state.koreaPrice - (state.koreaPrice - state.koreaChange)) /
-              (state.koreaPrice - state.koreaChange)) *
-            100
-          ).toFixed(2);
-        }
-      });
-  }, // 코스피 함수 끝
+  //       // 코스피 전날 대비 증감% - ((현재가-전일종가)/전일종가 * 100).
+  //       // this.koreaPercent = parseFloat(this.koreaChange)/parseFloat(this.koreaPrice)
+  //       if (state.koreaCheck === "하락") {
+  //         state.koreaPercent = (
+  //           ((state.koreaPrice - (state.koreaPrice + state.koreaChange)) /
+  //             (state.koreaPrice + state.koreaChange)) *
+  //           100
+  //         ).toFixed(2);
+  //       } else if (state.koreaCheck === "상승") {
+  //         state.koreaPercent = (
+  //           ((state.koreaPrice - (state.koreaPrice - state.koreaChange)) /
+  //             (state.koreaPrice - state.koreaChange)) *
+  //           100
+  //         ).toFixed(2);
+  //       }
+  //     });
+  // }, // 코스피 함수 끝
 
-  americaData({ state }) {
-    axios
-      .get("https://finance.naver.com/world/sise.nhn?symbol=NAS@IXIC")
-      .then((res) => {
-        var $ = cheerio.load(res.data);
-        state.tradeLoaded = true;
-        // 나스닥 현재 가격
-        state.americaPrice = $(
-          "#content > div.rate_info > div.today > p.no_today > em"
-        )
-          .text()
-          .split(",");
-        state.americaPrice = parseFloat(
-          state.americaPrice[0] + state.americaPrice[1]
-        );
+  // americaData({ state }) {
+  //   axios
+  //     .get("https://finance.naver.com/world/sise.nhn?symbol=NAS@IXIC")
+  //     .then((res) => {
+  //       var $ = cheerio.load(res.data);
+  //       state.tradeLoaded = true;
+  //       // 나스닥 현재 가격
+  //       state.americaPrice = $(
+  //         "#content > div.rate_info > div.today > p.no_today > em"
+  //       )
+  //         .text()
+  //         .split(",");
+  //       state.americaPrice = parseFloat(
+  //         state.americaPrice[0] + state.americaPrice[1]
+  //       );
 
-        // 나스닥 수치 증감
-        state.americaChange = $(
-          "#content > div.rate_info > div.today > p.no_exday > em:nth-child(2)"
-        ).text();
-        state.americaChange = parseFloat(state.americaChange);
-        // 나스닥 상승, 하락 구분
-        var beforeCheck = $(
-          "#content > div.rate_info > div.today > p.no_exday > em:nth-child(3) > span:nth-child(2)"
-        ).text();
-        if (beforeCheck === "+") {
-          state.americaCheck = "상승";
-        } else if (beforeCheck === "-") {
-          state.americaCheck = "하락";
-        }
+  //       // 나스닥 수치 증감
+  //       state.americaChange = $(
+  //         "#content > div.rate_info > div.today > p.no_exday > em:nth-child(2)"
+  //       ).text();
+  //       state.americaChange = parseFloat(state.americaChange);
+  //       // 나스닥 상승, 하락 구분
+  //       var beforeCheck = $(
+  //         "#content > div.rate_info > div.today > p.no_exday > em:nth-child(3) > span:nth-child(2)"
+  //       ).text();
+  //       if (beforeCheck === "+") {
+  //         state.americaCheck = "상승";
+  //       } else if (beforeCheck === "-") {
+  //         state.americaCheck = "하락";
+  //       }
 
-        // 코스피 전날 대비 증감% - ((현재가-전일종가)/전일종가 * 100).
-        // this.koreaPercent = parseFloat(this.koreaChange)/parseFloat(this.koreaPrice)
-        if (state.americaCheck === "하락") {
-          state.americaPercent = (
-            ((state.americaPrice - (state.americaPrice + state.americaChange)) /
-              (state.americaPrice + state.americaChange)) *
-            100
-          ).toFixed(2);
-        } else if (state.americaCheck === "상승") {
-          state.americaPercent = (
-            ((state.americaPrice - (state.americaPrice - state.americaChange)) /
-              (state.americaPrice - state.americaChange)) *
-            100
-          ).toFixed(2);
-        }
-      });
-  }, // 나스닥 함수 끝
+  //       // 코스피 전날 대비 증감% - ((현재가-전일종가)/전일종가 * 100).
+  //       // this.koreaPercent = parseFloat(this.koreaChange)/parseFloat(this.koreaPrice)
+  //       if (state.americaCheck === "하락") {
+  //         state.americaPercent = (
+  //           ((state.americaPrice - (state.americaPrice + state.americaChange)) /
+  //             (state.americaPrice + state.americaChange)) *
+  //           100
+  //         ).toFixed(2);
+  //       } else if (state.americaCheck === "상승") {
+  //         state.americaPercent = (
+  //           ((state.americaPrice - (state.americaPrice - state.americaChange)) /
+  //             (state.americaPrice - state.americaChange)) *
+  //           100
+  //         ).toFixed(2);
+  //       }
+  //     });
+  // }, // 나스닥 함수 끝
 
   bitCoin({ state }) {
     axios.get("https://api.upbit.com/v1/ticker?markets=KRW-BTC").then((res) => {
@@ -143,11 +163,63 @@ const actions = {
       // console.log(bit)
       var tranlate = /\B(?=(\d{3})+(?!\d))/g; // 1000원마다 , 찍어주는식
       state.bitPrice = bit.trade_price.toString().replace(tranlate, ",");
-      state.bitChange = bit.change_price;
+      state.bitChange = bit.change_price.toString().replace(tranlate, ",");
       state.bitCheck = bit.change;
       state.bitPercent = (bit.change_rate * 100).toFixed(2);
     });
   }, // bitCoin함수 끝
+
+  ethereum({ state }) {
+    axios.get("https://api.upbit.com/v1/ticker?markets=KRW-ETH").then((res) => {
+      state.tradeLoaded = true;
+      var bit = res.data[0];
+      // console.log(bit)
+      var tranlate = /\B(?=(\d{3})+(?!\d))/g; // 1000원마다 , 찍어주는식
+      state.ethPrice = bit.trade_price.toString().replace(tranlate, ",");
+      state.ethChange = bit.change_price.toString().replace(tranlate, ",");
+      state.ethCheck = bit.change;
+      state.ethPercent = (bit.change_rate * 100).toFixed(2);
+    });
+  },
+
+  ripple({ state }) {
+    axios.get("https://api.upbit.com/v1/ticker?markets=KRW-XRP").then((res) => {
+      state.tradeLoaded = true;
+      var bit = res.data[0];
+      // console.log(bit)
+      var tranlate = /\B(?=(\d{3})+(?!\d))/g; // 1000원마다 , 찍어주는식
+      state.xrpPrice = bit.trade_price.toString().replace(tranlate, ",");
+      state.xrpChange = bit.change_price.toString().replace(tranlate, ",");
+      state.xrpCheck = bit.change;
+      state.xrpPercent = (bit.change_rate * 100).toFixed(2);
+    });
+  },
+
+  ada({ state }) {
+    axios.get("https://api.upbit.com/v1/ticker?markets=KRW-ADA").then((res) => {
+      state.tradeLoaded = true;
+      var bit = res.data[0];
+      // console.log(bit)
+      var tranlate = /\B(?=(\d{3})+(?!\d))/g; // 1000원마다 , 찍어주는식
+      state.adaPrice = bit.trade_price.toString().replace(tranlate, ",");
+      state.adaChange = bit.change_price.toString().replace(tranlate, ",");
+      state.adaCheck = bit.change;
+      state.adaPercent = (bit.change_rate * 100).toFixed(2);
+    });
+  },
+
+  solana({ state }) {
+    axios.get("https://api.upbit.com/v1/ticker?markets=KRW-SOL").then((res) => {
+      state.tradeLoaded = true;
+      var bit = res.data[0];
+      // console.log(bit)
+      var tranlate = /\B(?=(\d{3})+(?!\d))/g; // 1000원마다 , 찍어주는식
+      state.solPrice = bit.trade_price.toString().replace(tranlate, ",");
+      state.solChange = bit.change_price.toString().replace(tranlate, ",");
+      state.solCheck = bit.change;
+      state.solPercent = (bit.change_rate * 100).toFixed(2);
+    });
+  },
 };
 
 export default {

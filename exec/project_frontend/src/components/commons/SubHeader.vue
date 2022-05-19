@@ -24,7 +24,12 @@
 </template>
 
 <script>
-import { moveStart, moveLogin, moveSignUp, moveCoinTrade } from "@/api/move.js";
+import {
+  moveStart,
+  moveLogin,
+  moveSignUp,
+  moveBitCoinTrade,
+} from "@/api/move.js";
 export default {
   name: "SubHeader",
   data() {
@@ -50,7 +55,7 @@ export default {
     },
     goBitCoinTrade() {
       // 거래소 페이지로 이동
-      moveCoinTrade();
+      moveBitCoinTrade();
     },
   },
 };

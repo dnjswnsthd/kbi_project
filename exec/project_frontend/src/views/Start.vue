@@ -2,13 +2,8 @@
   <div id="ALL">
     <div class="mainBackground">
       <div class="mainBackgroundContent">
-        <h1>가장 신뢰받는 글로벌 표준 디지털 자산 거래소</h1>
-        <p class="">
-          안전하고 투명한 시스템으로 빠르고 편리한 거래 환경을 제공합니다.
-        </p>
-
         <div class="coinNumber">
-          <div class="coin">
+          <!-- <div class="coin">
             <span class="blue">{{ allCoinEnglishName.length }}</span
             ><br />
             <span class="gray left">Coins</span>
@@ -17,84 +12,206 @@
             <span class="blue">{{ allCoin }}</span
             ><br />
             <span class="gray right">Markets</span>
-          </div>
+          </div> -->
         </div>
       </div>
 
       <img src="../assets/mainBackground.png" />
     </div>
+    <div class="total">
+      <div class="bit">
+        <v-card class="mx-auto" max-width="600" style="border-radius: 2rem">
+          <v-img
+            src="../assets/images/coinLogo/bitcoin.png"
+            class="coinLogoImg"
+          ></v-img>
+          <v-divider></v-divider>
+          <v-card-title
+            style="
+              font-size: 4em;
+              margin-top: 4%;
+              margin-left: 5%;
+              margin-bottom: 1%;
+            "
+          >
+            Bitcoin
+          </v-card-title>
+          <v-card-subtitle style="font-size: 2em; margin-left: 5%"
+            >비트코인(BTC/KRW)</v-card-subtitle
+          >
+          <div class="coinInfo">
+            <span class="up" v-if="bitCheck === 'RISE'">
+              <span class="coinPrice">{{ bitPrice }}</span> <br />
+              <span class="coinPercent">
+                ▲ {{ bitChange }} +({{ bitPercent }}%)
+              </span>
+            </span>
 
+            <span class="down" v-else-if="bitCheck === 'FALL'">
+              <span class="coinPrice">{{ bitPrice }}</span> <br />
+              <span class="coinPercent">
+                ▼ {{ bitChange }} -({{ bitPercent }}%)
+              </span>
+            </span>
+          </div>
+          <v-spacer></v-spacer>
+        </v-card>
+      </div>
+      <div class="bit">
+        <v-card class="mx-auto" max-width="600" style="border-radius: 2rem">
+          <v-img
+            src="../assets/images/coinLogo/ethereum.png"
+            class="coinLogoImg"
+          ></v-img>
+          <v-divider></v-divider>
+          <v-card-title
+            style="
+              font-size: 4em;
+              margin-top: 4%;
+              margin-left: 5%;
+              margin-bottom: 1%;
+            "
+          >
+            Ethereum
+          </v-card-title>
+          <v-card-subtitle style="font-size: 2em; margin-left: 5%"
+            >이더리움(ETH/KRW)</v-card-subtitle
+          >
+          <div class="coinInfo">
+            <span class="up" v-if="ethCheck === 'RISE'">
+              <span class="coinPrice">{{ ethPrice }}</span> <br />
+              <span class="coinPercent">
+                ▲ {{ ethChange }} +({{ ethPercent }}%)
+              </span>
+            </span>
+
+            <span class="down" v-else-if="ethCheck === 'FALL'">
+              <span class="coinPrice">{{ ethPrice }}</span> <br />
+              <span class="coinPercent">
+                ▼ {{ ethChange }} -({{ ethPercent }}%)
+              </span>
+            </span>
+          </div>
+          <v-spacer></v-spacer>
+        </v-card>
+      </div>
+      <div class="bit">
+        <v-card class="mx-auto" max-width="600" style="border-radius: 2rem">
+          <v-img
+            src="../assets/images/coinLogo/ripple.png"
+            class="coinLogoImg"
+          ></v-img>
+          <v-divider></v-divider>
+          <v-card-title
+            style="
+              font-size: 4em;
+              margin-top: 4%;
+              margin-left: 5%;
+              margin-bottom: 2%;
+            "
+          >
+            Ripple
+          </v-card-title>
+          <v-card-subtitle style="font-size: 2em; margin-left: 5%"
+            >리플(XRP/KRW)</v-card-subtitle
+          >
+          <div class="coinInfo">
+            <span class="up" v-if="xrpCheck === 'RISE'">
+              <span class="coinPrice">{{ xrpPrice }}</span> <br />
+              <span class="coinPercent">
+                ▲ {{ xrpChange }} +({{ xrpPercent }}%)
+              </span>
+            </span>
+
+            <span class="down" v-else-if="xrpCheck === 'FALL'">
+              <span class="coinPrice">{{ xrpPrice }}</span> <br />
+              <span class="coinPercent">
+                ▼ {{ xrpChange }} -({{ xrpPercent }}%)
+              </span>
+            </span>
+          </div>
+          <v-spacer></v-spacer>
+        </v-card>
+      </div>
+      <div class="bit">
+        <v-card class="mx-auto" max-width="600" style="border-radius: 2rem">
+          <v-img
+            src="../assets/images/coinLogo/ada.png"
+            class="coinLogoImg"
+          ></v-img>
+          <v-divider></v-divider>
+          <v-card-title
+            style="
+              font-size: 4em;
+              margin-top: 4%;
+              margin-left: 5%;
+              margin-bottom: 1%;
+            "
+          >
+            Ada
+          </v-card-title>
+          <v-card-subtitle style="font-size: 2em; margin-left: 5%"
+            >에이다(ADA/KRW)</v-card-subtitle
+          >
+          <div class="coinInfo">
+            <span class="up" v-if="adaCheck === 'RISE'">
+              <span class="coinPrice">{{ adaPrice }}</span> <br />
+              <span class="coinPercent">
+                ▲ {{ adaChange }} +({{ adaPercent }}%)
+              </span>
+            </span>
+
+            <span class="down" v-else-if="adaCheck === 'FALL'">
+              <span class="coinPrice">{{ adaPrice }}</span> <br />
+              <span class="coinPercent">
+                ▼ {{ adaChange }} -({{ adaPercent }}%)
+              </span>
+            </span>
+          </div>
+          <v-spacer></v-spacer>
+        </v-card>
+      </div>
+      <div class="bit">
+        <v-card class="mx-auto" max-width="600" style="border-radius: 2rem">
+          <v-img
+            src="../assets/images/coinLogo/solana.png"
+            class="coinLogoImg"
+          ></v-img>
+          <v-divider></v-divider>
+          <v-card-title
+            style="
+              font-size: 4em;
+              margin-top: 4%;
+              margin-left: 5%;
+              margin-bottom: 1%;
+            "
+          >
+            Solana
+          </v-card-title>
+          <v-card-subtitle style="font-size: 2em; margin-left: 5%"
+            >솔라나(SOL/KRW)</v-card-subtitle
+          >
+          <div class="coinInfo">
+            <span class="up" v-if="solCheck === 'RISE'">
+              <span class="coinPrice">{{ solPrice }}</span> <br />
+              <span class="coinPercent">
+                ▲ {{ solChange }} +({{ solPercent }}%)
+              </span>
+            </span>
+
+            <span class="down" v-else-if="solCheck === 'FALL'">
+              <span class="coinPrice">{{ solPrice }}</span> <br />
+              <span class="coinPercent">
+                ▼ {{ solChange }} -({{ solPercent }}%)
+              </span>
+            </span>
+          </div>
+          <v-spacer></v-spacer>
+        </v-card>
+      </div>
+    </div>
     <div class="warning">
       <img src="../assets/mainWarning.png" />
-    </div>
-
-    <div class="total">
-      <div class="korea">
-        <div class="coinName">
-          <span>KOSPI</span>
-          <p class="coinDetail">trade Kospi Index</p>
-        </div>
-
-        <div class="coinInfo">
-          <span class="up" v-if="koreaCheck === '상승'">
-            <span class="coinPrice">{{ koreaPrice }}</span> <br />
-            <span class="coinPercent">
-              ▲ {{ koreaChange }} +({{ koreaPercent }}%)
-            </span>
-          </span>
-
-          <span class="down" v-else-if="koreaCheck === '하락'">
-            <span class="coinPrice">{{ koreaPrice }}</span> <br />
-            <span class="coinPercent">
-              ▼ {{ koreaChange }} -({{ koreaPercent }}%)
-            </span>
-          </span>
-        </div>
-      </div>
-
-      <div class="america">
-        <div class="coinName">
-          <span>NASDAQ</span>
-          <p class="coinDetail">trade Nasdaq Index</p>
-        </div>
-
-        <span class="up" v-if="americaCheck === '상승'">
-          <span class="coinPrice">{{ americaPrice }}</span> <br />
-          <span class="coinPercent">
-            ▲ {{ americaChange }} +({{ americaPercent }}%)
-          </span>
-        </span>
-
-        <span class="down" v-else-if="americaCheck === '하락'">
-          <span class="coinPrice">{{ americaPrice }}</span> <br />
-          <span class="coinPercent">
-            ▼ {{ americaChange }} -({{ americaPercent }}%)
-          </span>
-        </span>
-      </div>
-
-      <div class="bit">
-        <div class="coinName">
-          <span>BITCOIN</span>
-          <p class="coinDetail">trade Bitcoin Index</p>
-        </div>
-
-        <div class="coinInfo">
-          <span class="up" v-if="bitCheck === 'RISE'">
-            <span class="coinPrice">{{ bitPrice }}</span> <br />
-            <span class="coinPercent">
-              ▲ {{ bitChange }} +({{ bitPercent }}%)
-            </span>
-          </span>
-
-          <span class="down" v-else-if="bitCheck === 'FALL'">
-            <span class="coinPrice">{{ bitPrice }}</span> <br />
-            <span class="coinPercent">
-              ▼ {{ bitChange }} -({{ bitPercent }}%)
-            </span>
-          </span>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -108,6 +225,7 @@ export default {
   name: "Main",
   data() {
     return {
+      show: false,
       signup: require("@/assets/images/header/sign-up.png"),
       login: require("@/assets/images/header/login.png"),
     };
@@ -115,20 +233,31 @@ export default {
   computed: {
     ...tradeData.mapState([
       "tradeLoaded",
-      "koreaPrice",
-      "koreaChange",
-      "koreaCheck",
-      "koreaPercent",
-
-      "americaPrice",
-      "americaChange",
-      "americaCheck",
-      "americaPercent",
 
       "bitPrice",
       "bitChange",
       "bitCheck",
       "bitPercent",
+
+      "ethPrice",
+      "ethChange",
+      "ethCheck",
+      "ethPercent",
+
+      "xrpPrice",
+      "xrpChange",
+      "xrpCheck",
+      "xrpPercent",
+
+      "adaPrice",
+      "adaChange",
+      "adaCheck",
+      "adaPercent",
+
+      "solPrice",
+      "solChange",
+      "solCheck",
+      "solPercent",
     ]),
     ...bitcoinData.mapState(["allCoinEnglishName", "allCoin"]),
   },
@@ -140,13 +269,15 @@ export default {
     moveSignUp() {
       moveSignUp();
     },
-    ...tradeData.mapActions(["koreaData", "americaData", "bitCoin"]),
+    ...tradeData.mapActions(["bitCoin", "ethereum", "ripple", "ada", "solana"]),
   },
 
   mounted() {
-    this.koreaData();
-    this.americaData();
     this.bitCoin();
+    this.ethereum();
+    this.ripple();
+    this.ada();
+    this.solana();
   },
 };
 </script>
