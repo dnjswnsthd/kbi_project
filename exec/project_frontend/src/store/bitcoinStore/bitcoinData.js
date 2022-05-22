@@ -29,16 +29,11 @@ const actions = {
     }
     axios.get("https://api.upbit.com/v1/market/all").then((res) => {
       state.allCoin = res.data.length;
-      var cnt = 0;
       for (var i = 0; i < res.data.length - 1; i++) {
-        if (cnt >= 20) {
-          break;
-        }
         if (res.data[i].market[0] === "K") {
           // 한국 코인만 가져오기
           state.allCoinEnglishName.push(res.data[i].market);
           state.allCoinKoreaName.push(res.data[i].korean_name);
-          cnt++;
         }
       }
 

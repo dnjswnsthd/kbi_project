@@ -1,0 +1,90 @@
+.coinTitle {
+  font-size: 18px;
+  padding: 1.3%;
+  color: black;
+  border-bottom: 1px solid #d4d6dc;
+}
+
+#coinInfo {
+  display: flex;
+  margin-left: 1%;
+}
+
+.nowPrice {
+  padding: 1%;
+  width: 40%;
+}
+
+.startPrice {
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2%;
+  font-size: 14px;
+}
+
+.startDetailPrice {
+  width: 40%;
+  text-align: right;
+  margin-left: 7%;
+  display: flex;
+}
+
+.upLine {
+  border-bottom: 1px solid #d5d6dc;
+}
+
+.downLine {
+  padding-top: 1%;
+}
+
+.priceName {
+  width: 50%;
+  text-align: left;
+}
+
+.priceKind {
+  width: 50%;
+  text-align: right;
+}
+
+.better {
+  font-size: 12px;
+  color: black;
+}
+
+.small {
+  font-size: 30px;
+  color: #999;
+  margin-left: 1%;
+}
+
+.up {
+  color: #d60000;
+  font-weight: bold;
+}
+
+.down {
+  color: #0051c7;
+  font-weight: bold;
+}
+
+.normal {
+  color: black;
+}
+
+.coinPrice {
+  font-size: 30px;
+}
+.kind {
+  font-size: 25px;
+  margin-left: 1%;
+}
+
+.chart {
+  margin-top: 5%;
+}
+
+Strong {
+  font-size:50px;
+}

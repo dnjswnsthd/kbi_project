@@ -6,7 +6,7 @@
       v-bind:class="{ up: this.coinInfo[2] == 'RISE' }"
     >
       <div class="coinTitle">
-        <strong>{{ this.coinInfo[3] }}</strong>
+        <Strong class="mainTitle">{{ this.coinInfo[3] }}</Strong>
         <span class="small">{{ coinInfo[1] }}</span>
       </div>
 
@@ -15,7 +15,7 @@
           <span class="coinPrice"
             ><strong>{{ this.coinInfo[4] }}</strong></span
           ><span class="kind">krw</span> <br />
-          <span class="black">전일 대비</span>
+          <span class="white black-text">전일 대비</span>
           <span>+{{ this.coinInfo[0] }}%</span>
           <span v-if="coinInfo[5].length < 3">▲{{ this.coinInfo[5] }}.00</span>
           <span v-if="coinInfo[5].length >= 3">▲{{ this.coinInfo[5] }}</span>
@@ -158,89 +158,5 @@ export default {
 </script>
 
 <style scoped>
-.coinTitle {
-  font-size: 18px;
-  padding: 1.3%;
-  color: black;
-  border-bottom: 1px solid #d4d6dc;
-}
-
-#coinInfo {
-  display: flex;
-  margin-left: 1%;
-}
-
-.nowPrice {
-  padding: 1%;
-  width: 40%;
-}
-
-.startPrice {
-  width: 60%;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 2%;
-  font-size: 14px;
-}
-
-.startDetailPrice {
-  width: 40%;
-  text-align: right;
-  margin-left: 7%;
-  display: flex;
-}
-
-.upLine {
-  border-bottom: 1px solid #d5d6dc;
-}
-
-.downLine {
-  padding-top: 1%;
-}
-
-.priceName {
-  width: 50%;
-  text-align: left;
-}
-
-.priceKind {
-  width: 50%;
-  text-align: right;
-}
-
-.black {
-  color: black;
-  font-size: 12px;
-}
-
-.small {
-  font-size: 13px;
-  color: #999;
-}
-
-.up {
-  color: #d60000;
-  font-weight: bold;
-}
-
-.down {
-  color: #0051c7;
-  font-weight: bold;
-}
-
-.normal {
-  color: black;
-}
-
-.coinPrice {
-  font-size: 30px;
-}
-.kind {
-  font-size: 18px;
-  margin-left: 0.5%;
-}
-
-.chart {
-  margin-top: 5%;
-}
+@import "../../assets/css/bitcoinChart.css";
 </style>
