@@ -44,7 +44,6 @@ export default {
     goStart() {
       // 시작 페이지로 이동
       moveStart();
-      this.linkCheck = false;
     },
     goSignUp() {
       // 회원가입 페이지로 이동
@@ -57,7 +56,6 @@ export default {
     goBitCoinTrade() {
       // 거래소 페이지로 이동
       moveBitCoinTrade();
-      this.linkCheck = true;
     },
   },
 };
