@@ -6,9 +6,6 @@
       <div class="">
         <loadingPage v-if="loaded == false"></loadingPage>
       </div>
-      <!-- <div class="">
-        <start v-if="linkCheck == false && loaded == true"></start>
-      </div> -->
       <transition name="component-fade" mode="out-in">
         <router-view></router-view>
       </transition>
