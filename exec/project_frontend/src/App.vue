@@ -6,7 +6,7 @@
       <div class="">
         <loadingPage v-if="loaded == false"></loadingPage>
       </div>
-      <transition name="component-fade" mode="out-in">
+      <transition v-if="loaded == true" name="component-fade" mode="out-in">
         <router-view></router-view>
       </transition>
     </div>
@@ -46,9 +46,17 @@ export default {
   },
   methods: {
     ...bitcoinData.mapActions(["allData"]),
+    handleResize() {
+      this.width = window.innerWidth;
+      this.height = window.innerHeight;
+    },
   },
   mounted() {
     this.allData();
+    this.handleResize();
+  },
+  beforeDestroy() {
+    this.handleResize();
   },
 };
 </script>

@@ -1,9 +1,9 @@
-#ALL {
-    display: flex;
-    width: 100%;
-    background-color: #e9ecf1;
-  }
-  
+#ALL2 {
+  display: flex;
+  width: 100%;
+  background-color: #e9ecf1;
+}
+
   .chart {
     background-color: white;
     width: 60%;

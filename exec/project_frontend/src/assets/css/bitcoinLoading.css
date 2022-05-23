@@ -1,0 +1,47 @@
+/* #ALL {
+  background: #e9ecf1;
+} */
+
+#loadingMain {
+    background: white;
+    width: 60%;
+    min-height: 700px;
+    margin-left: 20%;
+    /* margin-top: 4%; */
+    text-align: center;
+    padding-top: 4%;
+  }
+  .loadingLogo {
+    margin-top: 4%;
+    width: 30%;
+  }
+  
+  .big {
+    font-size: 40px;
+    color: #093687;
+  }
+  .middle {
+    font-size: 19px;
+  }
+  .small {
+    padding-top: 50%;
+    color: gray;
+  }
+  
+  .loading {
+    /* position: absolute; */
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 47.5%;
+    width: 40px;
+    height: 40px;
+    border: 5px solid #093687;
+    border-color: #093687 transparent transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin {
+    100% {
+      transform: rotate(360deg);
+    }
+  }

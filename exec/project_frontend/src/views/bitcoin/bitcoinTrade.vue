@@ -1,5 +1,5 @@
 <template>
-  <div id="ALL">
+  <div id="ALL2">
     <div class="chart">
       <bitcoin-chart
         v-bind:coinInfo="coinInfo"

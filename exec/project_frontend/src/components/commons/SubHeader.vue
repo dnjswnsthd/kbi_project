@@ -1,24 +1,20 @@
 <template>
   <header>
     <v-row class="headerBox">
-      <div @click="goStart" class="logo">
+      <v-col @click="goStart" class="logo">
         <img :src="logo" alt="로고" />
-      </div>
+      </v-col>
       <v-spacer></v-spacer>
-      <v-row class="bitMenu">
-        <div @click="goBitCoinTrade" class="menuList">
-          <img :src="trade" alt="거래소" class="menuImg" />
-        </div>
-      </v-row>
+      <v-col @click="goBitCoinTrade" class="menuList">
+        <img :src="trade" alt="거래소" class="menuImg" />
+      </v-col>
       <v-spacer></v-spacer>
-      <v-row class="menu">
-        <div @click="goSignUp" class="menuList">
-          <img :src="signup" alt="회원가입" class="menuImg" />
-        </div>
-        <div class="menuList" @click="goLogin()">
-          <img :src="login" alt="로그인" class="menuImg" />
-        </div>
-      </v-row>
+      <v-col @click="goSignUp" class="menuList">
+        <img :src="signup" alt="회원가입" class="menuImg" />
+      </v-col>
+      <v-col class="menuList" @click="goLogin()">
+        <img :src="login" alt="로그인" class="menuImg" />
+      </v-col>
     </v-row>
   </header>
 </template>
