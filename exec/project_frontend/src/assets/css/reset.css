@@ -2,8 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'BinggraeSamanco-Bold', sans-serif;
-    font-size: 14px;
+    font-family: 'HaenamFont';
 }
 *[type='password'] {
     font-family: 'arial', sans-serif;
@@ -12,31 +11,16 @@ img {
     margin: 0 auto;
     display: block !important;
 }
+a{
+    color: black;
+}
 ul,
 li {
     list-style: none;
 }
-a {
-    text-decoration: none;
-}
 p {
     margin: 0 !important;
     padding: 0 !important;
-}
-.addBtn {
-    width: 60px;
-    height: 60px;
-    color: red;
-    text-align: center;
-    margin: 0 10px;
-    cursor: pointer;
-}
-.minusBtn {
-    width: 60px;
-    height: 60px;
-    color: blue;
-    text-align: center;
-    cursor: pointer;
 }
 .row {
     margin: 0 !important;
@@ -73,7 +57,18 @@ p {
     font-weight: normal;
     font-style: normal;
 }
-
+@font-face {
+    font-family: 'Donoun-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Donoun-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HaenamFont';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/HaenamFont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 .width-30 {
     width: 30px;
 }

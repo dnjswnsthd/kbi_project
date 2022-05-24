@@ -6,37 +6,56 @@
       v-bind:class="{ up: this.coinInfo[2] == 'RISE' }"
     >
       <div class="coinTitle">
-        <Strong class="mainTitle">{{ this.coinInfo[3] }}</Strong>
+        <span class="mainTitle">{{ this.coinInfo[3] }}</span>
         <span class="small">{{ coinInfo[1] }}</span>
       </div>
 
       <div id="coinInfo">
         <div class="nowPrice">
-          <span class="coinPrice"
-            ><strong>{{ this.coinInfo[4] }}</strong></span
-          ><span class="kind">krw</span> <br />
-          <span class="white black-text">전일 대비</span>
-          <span>+{{ this.coinInfo[0] }}%</span>
-          <span v-if="coinInfo[5].length < 3">▲{{ this.coinInfo[5] }}.00</span>
-          <span v-if="coinInfo[5].length >= 3">▲{{ this.coinInfo[5] }}</span>
+          <span class="coinInfoPrice">{{ this.coinInfo[4] }}</span>
+          <span class="kind">krw</span> <br />
+          <span class="better">전일 대비</span>
+          <span class="calc">+{{ this.coinInfo[0] }}%</span>
+          <span class="point" v-if="coinInfo[5].length < 3"
+            >▲{{ this.coinInfo[5] }}.00</span
+          >
+          <span class="point" v-if="coinInfo[5].length >= 3"
+            >▲{{ this.coinInfo[5] }}</span
+          >
         </div>
 
         <div class="startPrice">
           <div class="startDetailPrice upLine">
             <div class="normal priceName">고가</div>
-            <div class="priceKind up">{{ StartPrice[2] }}</div>
+            <div class="priceKind up">
+              {{
+                StartPrice[2].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              }}
+            </div>
           </div>
           <div class="startDetailPrice upLine">
             <div class="normal priceName">시작</div>
-            <div class="priceKind up">{{ StartPrice[1] }}</div>
+            <div class="priceKind normal">
+              {{
+                StartPrice[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              }}
+            </div>
           </div>
           <div class="startDetailPrice downLine">
             <div class="normal priceName">저가</div>
-            <div class="priceKind down">{{ StartPrice[3] }}</div>
+            <div class="priceKind down">
+              {{
+                StartPrice[3].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              }}
+            </div>
           </div>
           <div class="startDetailPrice downLine">
             <div class="normal priceName">종가</div>
-            <div class="priceKind down">{{ StartPrice[4] }}</div>
+            <div class="priceKind normal">
+              {{
+                StartPrice[4].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              }}
+            </div>
           </div>
         </div>
       </div>
@@ -48,37 +67,56 @@
       v-bind:class="{ down: this.coinInfo[2] == 'FALL' }"
     >
       <div class="coinTitle">
-        <strong>{{ this.coinInfo[3] }}</strong>
+        <span class="mainTitle">{{ this.coinInfo[3] }}</span>
         <span class="small">{{ coinInfo[1] }}</span>
       </div>
 
       <div id="coinInfo">
         <div class="nowPrice">
-          <span class="coinPrice"
-            ><strong>{{ this.coinInfo[4] }}</strong></span
+          <span class="coinInfoPrice">{{ this.coinInfo[4] }}</span
           ><span class="kind">krw</span> <br />
-          <span class="black">전일 대비</span>
-          <span>-{{ this.coinInfo[0] }}%</span>
-          <span v-if="coinInfo[5].length < 3">▼{{ this.coinInfo[5] }}.00</span>
-          <span v-if="coinInfo[5].length >= 3">▼{{ this.coinInfo[5] }}</span>
+          <span class="better">전일 대비</span>
+          <span class="calc">-{{ this.coinInfo[0] }}%</span>
+          <span class="point" v-if="coinInfo[5].length < 3"
+            >▼{{ this.coinInfo[5] }}.00</span
+          >
+          <span class="point" v-if="coinInfo[5].length >= 3"
+            >▼{{ this.coinInfo[5] }}</span
+          >
         </div>
 
         <div class="startPrice">
           <div class="startDetailPrice upLine">
             <div class="normal priceName">고가</div>
-            <div class="priceKind up">{{ StartPrice[2] }}</div>
+            <div class="priceKind up">
+              {{
+                StartPrice[2].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              }}
+            </div>
           </div>
           <div class="startDetailPrice upLine">
             <div class="normal priceName">시작</div>
-            <div class="priceKind up">{{ StartPrice[1] }}</div>
+            <div class="priceKind normal">
+              {{
+                StartPrice[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              }}
+            </div>
           </div>
           <div class="startDetailPrice downLine">
             <div class="normal priceName">저가</div>
-            <div class="priceKind down">{{ StartPrice[3] }}</div>
+            <div class="priceKind down">
+              {{
+                StartPrice[3].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              }}
+            </div>
           </div>
           <div class="startDetailPrice downLine">
             <div class="normal priceName">종가</div>
-            <div class="priceKind down">{{ StartPrice[4] }}</div>
+            <div class="priceKind normal">
+              {{
+                StartPrice[4].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              }}
+            </div>
           </div>
         </div>
       </div>
@@ -87,7 +125,9 @@
     <div class="chart">
       <apexchart
         type="candlestick"
-        height="400"
+        width="150%"
+        height="80%"
+        border-radius="1px solid black"
         :options="chartOptions"
         :series="series"
       ></apexchart>
@@ -113,9 +153,6 @@ export default {
   data() {
     return {
       StartPrice: this.total[0],
-      // now: parseFloat(this.nowPrice[4].replace(",","")),
-      // open: this.total[0][1],
-      // change : (parseFloat(this.nowPrice[4].replace(",",""))-this.total[0][1]).toFixed(2),
       series: [
         {
           data: this.total,
@@ -127,16 +164,26 @@ export default {
           type: "candlestick",
           height: 350,
         },
-        // title: {
-        //   text: this.coinName,
-        //   align: 'left'
-        // },
         xaxis: {
           type: "datetime",
+          labels: {
+            style: {
+              fontSize: "1vh",
+            },
+          },
         },
         yaxis: {
           tooltip: {
             enabled: false,
+          },
+          labels: {
+            style: {
+              fontSize: "1vh",
+              fontWeight: "600",
+            },
+            formatter: function (val) {
+              return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            },
           },
         },
 

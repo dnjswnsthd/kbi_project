@@ -1,81 +1,98 @@
 .coinTitle {
-  font-size: 18px;
   padding: 1.3%;
   color: black;
-  border-bottom: 1px solid #d4d6dc;
+  margin-left: 1%;
+  border-bottom: 2px solid #151515;
+}
+
+.mainTitle {
+  font-size: 3vh;
+}
+
+.small {
+  font-size: 2vh;
+  color: #999;
+  margin-left: 1%;
 }
 
 #coinInfo {
   display: flex;
-  margin-left: 1%;
+  margin-left: 3%;
+}
+
+.coinInfoPrice {
+  font-size: 2.5vh;
+}
+
+.better {
+  font-size: 1.3vh;
+  color: black;
+  margin-right: 1%;
+}
+
+.calc {
+  font-size: 1.3vh;
+}
+.point {
+  font-size: 1.3vh;
 }
 
 .nowPrice {
   padding: 1%;
-  width: 40%;
+  width: 52%;
 }
 
 .startPrice {
-  width: 60%;
+  width: 45%;
   display: flex;
   flex-wrap: wrap;
-  margin-top: 2%;
-  font-size: 14px;
+  margin-top: 1.5%;
 }
 
 .startDetailPrice {
-  width: 40%;
+  width: 43%;
   text-align: right;
   margin-left: 7%;
   display: flex;
 }
 
 .upLine {
-  border-bottom: 1px solid #d5d6dc;
+  border-bottom: 2px solid #151515;
 }
 
 .downLine {
-  padding-top: 1%;
+  padding-top: 2%;
 }
 
 .priceName {
-  width: 50%;
+  font-size: 1.3vh;
   text-align: left;
 }
 
 .priceKind {
-  width: 50%;
+  width: 80%;
   text-align: right;
-}
-
-.better {
-  font-size: 12px;
-  color: black;
-}
-
-.small {
-  font-size: 30px;
-  color: #999;
-  margin-left: 1%;
+  font-size: 1.3vh;
 }
 
 .up {
   color: #d60000;
+  font-size: 1.3vh;
   font-weight: bold;
 }
 
 .down {
   color: #0051c7;
+  font-size: 1.3vh;
   font-weight: bold;
 }
 
 .normal {
+  font-size: 1.3vh;
   color: black;
 }
 
-.coinPrice {
-  font-size: 30px;
-}
+
 .kind {
   font-size: 25px;
   margin-left: 1%;
@@ -85,6 +102,7 @@
   margin-top: 5%;
 }
 
-Strong {
-  font-size:50px;
+#SvgjsTspan7802{
+  font-size: 0.9vh;
+  font-weight: 800;
 }

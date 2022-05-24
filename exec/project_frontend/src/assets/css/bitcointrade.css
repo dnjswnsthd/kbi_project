@@ -1,136 +1,126 @@
 #ALL2 {
   display: flex;
   width: 100%;
-  background-color: #e9ecf1;
+  background-color: #353a42;
 }
-
-  .chart {
-    background-color: white;
-    width: 60%;
-    min-height: 700px;
-    margin-left: 5%;
-    margin-top: 1%;
-  }
-  
-  .coinType {
-    background-color: white;
-    width: 30%;
-    max-height: 700px;
-    margin-left: 1%;
-    margin-top: 1%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
-  
-  #coinTypeChoice {
-    width: 100%;
-    display: flex;
-    border-top: 1px solid #d5d6dc;
-    border-bottom: 1px solid #d5d6dc;
-  }
-  
-  .choice {
-    width: 20%;
-    height: 40px;
-    text-align: center;
-    margin-top: 3%;
-    color: #2b2b2b;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .first {
-    border-bottom: 3px solid #115dcb;
-    color: #115dcb;
-  }
-  
-  .allCoin {
-    width: 100%;
-  }
-  
-  .coinTalble {
-    width: 100%;
-  }
-  
-  .standard {
-    width: 100%;
-    height: 30px;
-    background-color: #f9fafc;
-    color: #666;
-    font-size: 11px;
-  }
-  
-  .coinName {
-    border-top: 1px solid #d5d6dc;
-  }
-  
-  .coinKoreaName {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    font-size: 13px;
-    text-align: center;
-    margin-left: 10%;
-  }
-  
-  .coinEnglishName {
-    color: #666;
-    font-size: 11px;
-    text-align: left;
-    margin-left: 25%;
-  }
-  .star {
-    margin-left: 8%;
-    margin-top: 5%;
-  }
-  .coinPrice {
-    border-top: 1px solid #d5d6dc;
-    width: 30%;
-    text-align: center;
-    font-size: 13px;
-    font-weight: 600;
-    color: #d60000;
-  }
-  .coinChange {
-    border-top: 1px solid #d5d6dc;
-    letter-spacing: 1px;
-    padding-top: 3%;
-    width: 15%;
-    text-align: center;
-    font-size: 12px;
-    font-weight: 550;
-    color: #d60000;
-  }
-  .coinFall {
-    border-top: 1px solid #d5d6dc;
-    letter-spacing: 0.7px;
-    padding-top: 3%;
-    width: 15%;
-    color: #0051c7;
-    text-align: center;
-    font-size: 12px;
-    font-weight: 550;
-  }
-  .changePrice {
-    text-align: right;
-    margin-right: 15%;
-  }
-  
-  .blue {
-    color: #0051c7;
-  }
-  
-  .noLogin {
-    margin-top: 30%;
-    text-align: center;
-    font-size: 12px;
-    color: #999;
-  }
-  
-  p {
-    margin: 0px 0px 0px 0px;
-    line-height: 120%;
-  }
-  table {
-    border-spacing: 0px 0px 0px 0px;
-  }
+.chart {
+  background-color: white;
+  width: 60%;
+  min-height: 700px;
+  margin-left: 4%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+.advertisement {
+  margin-top: -8%;
+  width: 100%;
+}
+.coinType {
+  background-color: white;
+  width: 28%;
+  max-height: 1100px;
+  margin-left: 5%;
+  margin-top: 1%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+#coinTypeChoice {
+  width: 100%;
+  display: flex;
+  border-top: 1px solid #d5d6dc;
+  border-bottom: 1px solid #d5d6dc;
+}
+.choice {
+  width: 20%;
+  height: 2vmax;
+  text-align: center;
+  margin-top: 3%;
+  text-decoration: none;
+  font-size: 1.3vh;
+  font-weight: bold;
+  color: #151515 !important;
+}
+.first {
+  border-bottom: 3px solid #151515;
+  color: #151515;
+}
+.allCoin {
+  width: 100%;
+}
+.coinTalble {
+  width: 100%;
+}
+.standard {
+  height: 2vmax;
+  background-color: #242222;
+  color: white;
+  font-size: 1.1vh;
+  letter-spacing: 0.2vh;
+}
+.coinInfo{
+  text-align: center;
+}
+.coinName {
+  border-top: 2px solid #d5d6dc;
+}
+.coinKoreaName {
+  text-decoration: none;
+  color: #151515 !important;
+  font-weight: bold;
+  font-size: 1.2vh;
+  text-align: center;
+}
+.coinEnglishName {
+  color: #666;
+  font-size: 1vh;
+  font-family: MaruBuri-Regular;
+}
+.star {
+  margin-left: 40%;
+  margin-top: 6%;
+}
+.tdStar{
+  border-top: 2px solid #d5d6dc;
+}
+.coinPrice {
+  border-top: 2px solid #d5d6dc;
+  width: 30%;
+  text-align: center;
+  font-size: 1.3vh;
+  font-weight: 600;
+  color: #d60000;
+}
+.coinChange {
+  border-top: 2px solid #d5d6dc;
+  letter-spacing: 1px;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  width: 15%;
+  text-align: center;
+  font-size: 1vh;
+  font-weight: 600;
+  color: #d60000;
+}
+.coinFall {
+  border-top: 2px solid #d5d6dc;
+  letter-spacing: 0.7px;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  width: 15%;
+  color: #0051c7;
+  text-align: center;
+  font-size: 1vh;
+  font-weight: 600;
+}
+.changePrice {
+  margin-right: 15%;
+}
+.blue2 {
+  color: #0051c7;
+}
+.noLogin {
+  margin-top: 30%;
+  text-align: center;
+  font-size: 1.8vh;
+  color: #999;
+}

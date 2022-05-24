@@ -23,8 +23,6 @@ export default {
     let token = sessionStorage.getItem("X-AUTH-TOKEN");
     let decode = jwt_decode(token);
     this.id = decode.sub;
-    this.getMyRefrigerator();
-    this.getSubscribeInfo();
   },
   methods: {},
 };

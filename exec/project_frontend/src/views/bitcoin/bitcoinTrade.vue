@@ -6,6 +6,7 @@
         v-bind:total="total"
         v-if="find === true"
       ></bitcoin-chart>
+      <img class="advertisement" src="../../assets/advertisement.png" />
     </div>
 
     <div class="coinType">
@@ -25,6 +26,7 @@
         <table class="coinTalble">
           <thead>
             <tr class="standard">
+              <th>즐겨찾기</th>
               <th>한글명</th>
               <th>현재가</th>
               <th>전일대비</th>
@@ -37,17 +39,20 @@
               v-bind:key="index"
               v-on:click="drawChart(coin[1], coin)"
             >
-              <td class="coinName" style="width: 40%">
+              <td class="tdStar">
                 <img
                   class="star"
                   src="../../assets/images/star.png"
-                  style="width: 5%"
+                  style="width: 20%"
                 />
-                <a class="coinKoreaName" href="#">{{ coin[3] }}</a>
-                <p class="coinEnglishName">{{ coin[1] }}</p>
+              </td>
+              <td class="coinName" style="width: 40%">
+                <a class="coinKoreaName" href="#"
+                  >{{ coin[3] }} | {{ coin[1] }}</a
+                >
               </td>
 
-              <td class="coinPrice" v-bind:class="{ blue: coin[2] == 'FALL' }">
+              <td class="coinPrice" v-bind:class="{ blue2: coin[2] == 'FALL' }">
                 {{ coin[4] }}
               </td>
 
@@ -109,12 +114,15 @@ export default {
   computed: {
     ...bitcoinData.mapState(["tradeAllcoin"]),
   },
+  mounted() {
+    this.drawChart(this.tradeAllcoin[0][1], this.tradeAllcoin[0]);
+  },
   // 0:"0.09" // 퍼센트
   // 1:"KRW-BTC" // 영어이름
   // 2:"RISE" // 상승 하락 체크
   // 3:"비트코인" // 한국어 이름
   // 4:"11,530,000" // 코인 가격
-  // 5:"10,000" // 코인 변동폭
+  // 5:"10,000" //
   methods: {
     drawChart(eng, coinInfo) {
       if (this.total != []) {
