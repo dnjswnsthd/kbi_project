@@ -124,14 +124,16 @@ export default {
   // 4:"11,530,000" // 코인 가격
   // 5:"10,000" //
   methods: {
-    drawChart(eng, coinInfo) {
+    drawChart(allCoinEnglishName, coinInfo) {
       if (this.total != []) {
         this.total = [];
         this.find = false;
       }
       axios
         .get(
-          "https://api.upbit.com/v1/candles/days?market=" + eng + "&count=70"
+          "https://api.upbit.com/v1/candles/days?market=" +
+            allCoinEnglishName +
+            "&count=70"
         )
         .then((res) => {
           this.find = true;
@@ -145,9 +147,6 @@ export default {
               res.data[i].trade_price,
             ]);
           }
-          // console.log(this.total)
-          console.log(eng);
-          console.log(coinInfo);
         });
     }, // drawChart 함수 끝
     noNeedLogin() {

@@ -36,7 +36,7 @@
           style="font-size: 0.8vmax; margin-left: 5%; font-family: twayair"
           >비트코인(BTC/KRW)</v-card-subtitle
         >
-        <div class="coinInfo">
+        <div class="coinInfoMain">
           <span class="upPrice" v-if="bitCheck === 'RISE'">
             <span class="cPrice">{{ bitPrice }} 원</span>
             <br />
@@ -74,7 +74,7 @@
           style="font-size: 0.8vmax; margin-left: 5%; font-family: twayair"
           >이더리움(ETH/KRW)</v-card-subtitle
         >
-        <div class="coinInfo">
+        <div class="coinInfoMain">
           <span class="upPrice" v-if="ethCheck === 'RISE'">
             <span class="cPrice">{{ ethPrice }} 원</span> <br />
             <span class="coinPercent">
@@ -111,7 +111,7 @@
           style="font-size: 0.8vmax; margin-left: 5%; font-family: twayair"
           >리플(XRP/KRW)</v-card-subtitle
         >
-        <div class="coinInfo">
+        <div class="coinInfoMain">
           <span class="upPrice" v-if="xrpCheck === 'RISE'">
             <span class="cPrice">{{ xrpPrice }} 원</span> <br />
             <span class="coinPercent">
@@ -149,7 +149,7 @@
           style="font-size: 0.8vmax; margin-left: 5%; font-family: twayair"
           >에이다(ADA/KRW)</v-card-subtitle
         >
-        <div class="coinInfo">
+        <div class="coinInfoMain">
           <span class="upPrice" v-if="adaCheck === 'RISE'">
             <span class="cPrice">{{ adaPrice }} 원</span> <br />
             <span class="coinPercent">
@@ -187,7 +187,7 @@
           style="font-size: 0.8vmax; margin-left: 5%; font-family: twayair"
           >솔라나(SOL/KRW)</v-card-subtitle
         >
-        <div class="coinInfo">
+        <div class="coinInfoMain">
           <span class="upPrice" v-if="solCheck === 'RISE'">
             <span class="cPrice">{{ solPrice }} 원</span> <br />
             <span class="coinPercent">
