@@ -1,25 +1,50 @@
 @charset "utf-8";
+.signin {
+    padding: 0;
+    margin: 0 auto;
+}
+.section-container {
+    background: #fff;
+    width: 95vmax !important;
+    margin-top: 2%;
+    margin-left: -17%;
+}
+.left {
+    height: 40vmax !important;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    border-width: 2px;
+    border-style: solid;
+    background: url("../../assets/images/loginPage.png")
+}
+.right {
+    box-sizing: border-box;
+    background: #1f1f1f;
+    color: white;
+    height: 40vmax !important;
+}
+.inputField input{
+    color: white !important;
+    height: 3vh;
+}
 .loginFormBox {
     width: calc(100% - 100px);
     margin: 20px auto;
 }
 .loginTitle {
-    font-size: 24px;
-    text-align: center;
-}
-.resetBtn {
-    width: 60px;
-    height: 40px;
+    margin: 10% 0 10% 0;
+    font-size: 2vh;
     text-align: center;
 }
 .loginBtn {
-    width: 60px;
-    height: 40px;
+    width: 100%;
     text-align: center;
-    font-size: 18px;
-    border: 1px solid #d9418d;
+    font-size: 1.5vh;
+    border: 1px solid white;
     border-radius: 10px;
     padding: 5px;
-    color: #d9418d;
-    margin-left: 10px;
+    color: white;
+    margin-top: 5%;
 }

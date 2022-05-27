@@ -4,28 +4,50 @@
     margin: 0 auto;
 }
 .signTitle {
-    font-size: 36px;
+    margin: 10% 0 10% 0;
+    font-size: 2vh;
     text-align: center;
 }
-
+.left {
+    height: 40vmax !important;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    border-width: 2px;
+    border-style: solid;
+    background: url("../../assets/images/loginPage.png")
+}
+.inputField input{
+    color: white !important;
+    height: 3vh;
+}
+.right {
+    box-sizing: border-box;
+    background: #1f1f1f;
+    color: white;
+    height: 40vmax !important;
+}
 .duplicateCheckBox {
-    padding: 5px;
-    margin-top: 10px;
+    padding: 1%;
+    margin-top: 1%;
+    width: 10vmax;
 }
-
-.resetBtn {
-    width: 60px;
-    height: 40px;
-    text-align: center;
+.dupBtn {
+    color: white !important;
+    background-color: #1f1f1f !important;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 90%;
+    font-size: 0.5vmax !important;
+    font-weight: 900;
 }
 .signupBtn {
-    width: 60px;
-    height: 40px;
+    width: 100%;
     text-align: center;
-    font-size: 18px;
-    border: 1px solid #d9418d;
+    font-size: 2vh;
+    border: 1px solid white;
     border-radius: 10px;
-    padding: 5px;
-    color: #d9418d;
-    margin: 0 10px;
+    color: white;
+    margin: 10% 0 0 0;
 }

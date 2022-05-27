@@ -1,29 +1,38 @@
 <template>
   <v-container>
-    <div class="loginFormBox">
-      <h1 class="loginTitle">로 그 인</h1>
-      <v-text-field
-        label="ID (Email)"
-        placeholder="ex)ssafy@naver.com"
-        type="string"
-        v-model="user.id"
-      ></v-text-field>
-      <form>
-        <v-text-field
-          label="PW (대소문자 특수문자 조합 8자 이상)"
-          placeholder="ssafy123!"
-          type="password"
-          v-model="user.password"
-          autocomplete="off"
-        ></v-text-field>
-      </form>
-      <v-row>
-        <v-spacer></v-spacer>
-        <button class="resetBtn">초기화</button>
-
-        <button class="loginBtn" @click="confirm()">로그인</button>
+    <section class="section-container">
+      <v-row class="signin">
+        <v-col cols="8" class="left"> </v-col>
+        <v-col cols="4" class="right">
+          <div class="loginFormBox">
+            <h1 class="loginTitle">LOGIN</h1>
+            <v-text-field
+              class="inputField"
+              label="ID (Email)"
+              placeholder="ex) 내투왕@kingofinvestment.shop"
+              dark
+              type="string"
+              v-model="user.id"
+            ></v-text-field>
+            <form>
+              <v-text-field
+                class="inputField"
+                label="PW (대소문자 특수문자 조합 8자 이상)"
+                placeholder="kingofinvest1!"
+                dark
+                type="password"
+                v-model="user.password"
+                autocomplete="off"
+              ></v-text-field>
+            </form>
+            <v-row>
+              <v-spacer></v-spacer>
+              <button class="loginBtn" @click="confirm()">로그인</button>
+            </v-row>
+          </div>
+        </v-col>
       </v-row>
-    </div>
+    </section>
   </v-container>
 </template>
 <script>

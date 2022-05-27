@@ -1,57 +1,70 @@
 <template>
   <v-container>
-    <div class="signFormBox">
-      <h1 class="signTitle">회 원 가 입</h1>
-      <v-row>
-        <v-text-field
-          label="ID (Email)"
-          placeholder="ex)ssafy@naver.com"
-          type="string"
-          v-model="user.email"
-        ></v-text-field>
-        <v-spacer></v-spacer>
-        <div class="duplicateCheckBox">
-          <v-btn @click="checkId()">ID 중복확인</v-btn>
-        </div>
-      </v-row>
-      <form>
-        <v-text-field
-          label="PW (대소문자 특수문자 숫자 조합 8자 이상)"
-          placeholder="ssafy123!"
-          type="password"
-          v-model="user.pwd"
-          autocomplete="off"
-        >
-        </v-text-field>
-        <v-text-field
-          label="PW 확인"
-          placeholder="확인을 위해 한번 더 입력해 주세요."
-          type="password"
-          v-model="pwdChecked"
-          autocomplete="off"
-        >
-        </v-text-field>
-      </form>
-      <v-row>
-        <v-text-field
-          label="닉네임"
-          placeholder="살림왕"
-          type="string"
-          v-model="user.nick"
-        ></v-text-field>
-        <v-spacer></v-spacer>
-        <div class="duplicateCheckBox">
-          <v-btn @click="checkNick">닉네임 중복확인</v-btn>
-        </div>
-      </v-row>
+    <section class="section-container">
+      <v-row class="signin">
+        <v-col cols="8" class="left"> </v-col>
+        <v-col cols="4" class="right">
+          <div class="signFormBox">
+            <h1 class="signTitle">회 원 가 입</h1>
+            <v-row>
+              <v-text-field
+                class="inputField"
+                label="ID (Email)"
+                placeholder="ex)내투왕@kingofinvestment.shop"
+                dark
+                type="string"
+                v-model="user.email"
+              ></v-text-field>
+              <v-spacer></v-spacer>
+              <div class="duplicateCheckBox">
+                <v-btn class="dupBtn" @click="checkId()">ID 중복확인</v-btn>
+              </div>
+            </v-row>
+            <form>
+              <v-text-field
+                class="inputField"
+                label="PW (대소문자 특수문자 숫자 조합 8자 이상)"
+                placeholder="kingofinvestment1!"
+                dark
+                type="password"
+                v-model="user.pwd"
+                autocomplete="off"
+              >
+              </v-text-field>
+              <v-text-field
+                class="inputField"
+                label="PW 확인"
+                placeholder="확인을 위해 한번 더 입력해 주세요."
+                dark
+                type="password"
+                v-model="pwdChecked"
+                autocomplete="off"
+              >
+              </v-text-field>
+            </form>
+            <v-row>
+              <v-text-field
+                class="inputField"
+                label="닉네임"
+                placeholder="내투왕"
+                dark
+                type="string"
+                v-model="user.nick"
+              ></v-text-field>
+              <v-spacer></v-spacer>
+              <div class="duplicateCheckBox">
+                <v-btn class="dupBtn" @click="checkNick">닉네임 중복확인</v-btn>
+              </div>
+            </v-row>
 
-      <v-row>
-        <v-spacer></v-spacer>
-        <button class="resetBtn" @click="reset">초기화</button>
-
-        <button class="signupBtn" @click="signUp">등록</button>
+            <v-row>
+              <v-spacer></v-spacer>
+              <button class="signupBtn" @click="signUp">등록</button>
+            </v-row>
+          </div>
+        </v-col>
       </v-row>
-    </div>
+    </section>
   </v-container>
 </template>
 <script>

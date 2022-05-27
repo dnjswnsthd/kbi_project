@@ -12,9 +12,10 @@ const state = {
 
   tradeAllcoin: [],
 };
-// vue의 computed와 비슷
+// vue의 computed와 비슷하다.
 const getters = {};
-// state를 수정할 때 사용
+// state를 변경시키는 역할을 한다.
+// 동기처리를 하며 commit('함수명', '전달인자')로 실행 시킬 수 있다.
 const mutations = {};
 // 비동기를 사용할 때, 또는 여러 mutations를 연달아 송출할 때
 const actions = {
@@ -33,11 +34,7 @@ const actions = {
           state.allCoinKoreaName.push(res.data[i].korean_name);
         }
       }
-      //      var eng = state.allCoinEnglishName;
-      // var price = "";
-      // var change = "";
-      // var check = "";
-      // var changePrice = "";
+
       var moneyForm = /\B(?=(\d{3})+(?!\d))/g;
 
       const countPrice = (i) => {
@@ -60,7 +57,7 @@ const actions = {
               });
             i++;
             countPrice(i);
-          }, 150);
+          }, 100);
         } else {
           state.loaded = true;
         }
